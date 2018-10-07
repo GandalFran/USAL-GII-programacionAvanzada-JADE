@@ -27,7 +27,7 @@ public class JsonFileDAOImpl<T> implements FileDAO<T>{
 		}
 		
 		toParse = Utils.listStringToString( inputList );
-		toFill.addAll( (Collection<? extends T>) gson.fromJson(toParse, toFill.getClass()));
+		toFill.addAll( gson.fromJson(toParse, toFill.getClass()));
 		
 		return true;
 	}

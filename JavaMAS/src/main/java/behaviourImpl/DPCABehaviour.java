@@ -1,7 +1,5 @@
 package behaviourImpl;
 
-import ClusterServices.CluserService;
-import ClusterServices.DBSCANClusterServiceImpl;
 import jade.core.behaviours.CyclicBehaviour;
 
 public class DPCABehaviour extends CyclicBehaviour{
