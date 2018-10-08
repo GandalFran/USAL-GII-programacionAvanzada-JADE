@@ -1,4 +1,4 @@
-package utils;
+package controller.communicationController;
 
 import java.io.IOException;
 import java.io.Serializable;
@@ -16,52 +16,28 @@ import jade.domain.FIPAAgentManagement.ServiceDescription;
 import jade.lang.acl.ACLMessage;
 import jade.lang.acl.MessageTemplate;
 
-public class JadeCommunicationUtils {
+public class JadeCommunicationControllerImpl implements CommunicationController{
 	
-	public static Object reciveMsg(Agent agent, String ontology) {
+	@Override
+	public Object receiveMessageBlocking(Agent agent, String ontology) {
 		ACLMessage msg= agent.blockingReceive(MessageTemplate.and(MessageTemplate.MatchPerformative(ACLMessage.REQUEST), MessageTemplate.MatchOntology(ontology)));
 		Object msgContent = msg.getContent();
 		return msgContent; 
 	}
 	
-	/**
-	 * Permite buscar a todos los agentes que implementa un servicio de un tipo dado
-	 * @param agent Agente con el que se realiza la búsqueda
-	 * @param tipo  Tipo de servidio buscado
-	 * @return Listado de agentes que proporciona el servicio
-	 */
-    public static DFAgentDescription [] buscarAgentes(Agent agent, String tipo)
-    {
-        //indico las características el tipo de servicio que quiero encontrar
-        DFAgentDescription template=new DFAgentDescription();
-        ServiceDescription templateSd=new ServiceDescription();
-        templateSd.setType(tipo); //como define el tipo el agente coordinador tamiben podriamos buscar por nombre
-        template.addServices(templateSd);
-        
-        SearchConstraints sc = new SearchConstraints();
-        sc.setMaxResults(Long.MAX_VALUE);
-        try
-        {
-            DFAgentDescription [] results = DFService.search(agent, template, sc);
-            return results;
-        }
-        catch(FIPAException e)
-        {
-            //JOptionPane.showMessageDialog(null, "Agente "+getLocalName()+": "+e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
-        	e.printStackTrace();
-        }
-        
-        return null;
-    }
-    
+	@Override
+	public Object receiveMessageNotBlocking(Agent agent, String ontology){
+		throw new UnImplementedException();
+	}
     
     /**
-     * Envía un objeto desde el agent eindicado a un agent eque proporciona un servicio del tipo dado
+     * Envï¿½a un objeto desde el agent eindicado a un agent eque proporciona un servicio del tipo dado
      * @param agent Agente desde el que se va a enviar el servicio
      * @param tipo Tipo del servicio buscado
      * @param objeto Mensaje a Enviar
      */
-    public static void enviarMensaje(Agent agent, String type, Object objeto, String ontology)
+	@Override
+    public bool sendMessage(Agent agent, String type, Object objeto, String ontology)
     {
         DFAgentDescription[] dfd;
         dfd=buscarAgentes(agent, type);
@@ -89,20 +65,52 @@ public class JadeCommunicationUtils {
         }
         catch(IOException e)
         {
-            //JOptionPane.showMessageDialog(null, "Agente "+getLocalName()+": "+e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
-            e.printStackTrace();
+            return false;
         }
+        return true;
     }
+    
+	
+	/**
+	 * Permite buscar a todos los agentes que implementa un servicio de un tipo dado
+	 * @param agent Agente con el que se realiza la bï¿½squeda
+	 * @param tipo  Tipo de servidio buscado
+	 * @return Listado de agentes que proporciona el servicio
+	 */
+    public DFAgentDescription [] buscarAgentes(Agent agent, String tipo)
+    {
+        //indico las caracterï¿½sticas el tipo de servicio que quiero encontrar
+        DFAgentDescription template=new DFAgentDescription();
+        ServiceDescription templateSd=new ServiceDescription();
+        templateSd.setType(tipo); //como define el tipo el agente coordinador tamiben podriamos buscar por nombre
+        template.addServices(templateSd);
+        
+        SearchConstraints sc = new SearchConstraints();
+        sc.setMaxResults(Long.MAX_VALUE);
+        try
+        {
+            DFAgentDescription [] results = DFService.search(agent, template, sc);
+            return results;
+        }
+        catch(FIPAException e)
+        {
+            //JOptionPane.showMessageDialog(null, "Agente "+getLocalName()+": "+e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+        	e.printStackTrace();
+        }
+        
+        return null;
+    }
+
 
     /**
      * Permite buscar los agents que dan un servicio de un determinado tipo. Devuelve el primero de ellos.
-     * @param agent Agentes desde el que se realiza la búsqueda
+     * @param agent Agentes desde el que se realiza la bï¿½squeda
      * @param tipo Tipo de servicio buscado
      * @return Primer agente que proporciona el servicio
      */
-    public static DFAgentDescription buscarAgente(Agent agent, String type)
+    public DFAgentDescription buscarAgente(Agent agent, String type)
     {
-        //indico las características el tipo de servicio que quiero encontrar
+        //indico las caracterï¿½sticas el tipo de servicio que quiero encontrar
         DFAgentDescription template=new DFAgentDescription();
         ServiceDescription templateSd=new ServiceDescription();
         templateSd.setType(type); //como define el tipo el agente coordinador tamiben podriamos buscar por nombre

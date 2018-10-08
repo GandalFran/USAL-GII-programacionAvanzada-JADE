@@ -1,4 +1,4 @@
-package IO;
+package controllers.IO;
 
 import java.io.File;
 import java.nio.file.Files;
@@ -12,9 +12,9 @@ import POJO.Project;
 import utils.Utils;
 
 public class JsonFileDAOImpl<T> implements FileDAO<T>{
-
+	
 	@Override
-	public Boolean importData(String path, Collection<T> toFill) {
+	bool importMultipleObject( String path, List<T> toFill ){
 		String toParse = null;
 		Gson gson = new Gson();
 		List<String> inputList = null;
@@ -31,10 +31,9 @@ public class JsonFileDAOImpl<T> implements FileDAO<T>{
 		
 		return true;
 	}
-
-
+	
 	@Override
-	public Boolean exportData(String path, Collection<T> toExport) {
+	bool exportMultipleObject( String path, List<T> toExport ){
 		List<String>toWrite = null;
 		Gson gson = new Gson();
 		Path p = new File( path ).toPath();
@@ -50,6 +49,7 @@ public class JsonFileDAOImpl<T> implements FileDAO<T>{
 		
 		return true;
 	}
+
 
 
 }

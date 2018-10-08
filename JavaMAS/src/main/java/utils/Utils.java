@@ -2,8 +2,8 @@ package utils;
 
 import java.util.List;
 
-import ClusterServices.ClusterizablePOJO.ClusterizableProject;
-import ClusterServices.ClusterizablePOJO.ClusterizableStudent;
+import Controllers.ClusterizablePOJO.ClusterizableProject;
+import Controllers.ClusterizablePOJO.ClusterizableStudent;
 import POJO.Project;
 import POJO.Student;
 

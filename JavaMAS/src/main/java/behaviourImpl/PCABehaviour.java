@@ -2,10 +2,11 @@ package behaviourImpl;
 
 import java.util.List;
 
-import ClusterServices.CluserService;
-import ClusterServices.DBSCANClusterServiceImpl;
-import ClusterServices.ClusterizablePOJO.ClusterizableProject;
-import ClusterServices.DataTypes.ClusterizableElement;
+import controller.clusterizationController.ClusterController;
+import controller.clusterizationController.DBSCANClusterServiceImpl;
+
+import Controllers.ClusterizablePOJO.ClusterizableProject;
+import Controllers.DataTypes.ClusterizableElement;
 import jade.core.behaviours.CyclicBehaviour;
 
 public class PCABehaviour extends CyclicBehaviour{
@@ -14,7 +15,7 @@ public class PCABehaviour extends CyclicBehaviour{
 
 	@Override
 	public void action() {
-		CluserService<ClusterizableProject> cs = new DBSCANClusterServiceImpl<>();
+		ClusterController<ClusterizableProject> cs = new DBSCANClusterServiceImpl<>();
 		List<ClusterizableElement<ClusterizableProject>>[] clusters = null;;
 		List<ClusterizableProject> input = null;
 		

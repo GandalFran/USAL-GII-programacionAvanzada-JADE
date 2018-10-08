@@ -3,7 +3,11 @@ package POJO;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Project {
+import controller.Clusterizable;
+import controllers.DataTypes.Integer;
+
+
+public class Project implements Clusterizable{
 	private int id;
 	private String name;
 	private List<Skill> neededSkills;
@@ -17,7 +21,7 @@ public class Project {
 		this.setName(name);
 		this.setNeededSkills(neededSkills);
 	}
-
+	
 	
 	@Override
 	public String toString() {
@@ -77,9 +81,21 @@ public class Project {
 	public int getId() {
 		return id;
 	}
-
+	
 	public void setId(int id) {
 		this.id = id;
+	}
+
+	@Override
+	public Integer[] getClusterParametersArray() {
+		int i = 0;
+		Integer[] toReturn = new Integer[this.neededSkills.size()];
+		
+		for(Skill s : this.neededSkills){
+			toReturn[i++] = s.getLevel();
+		}
+		
+		return toReturn;
 	}
 	
 }

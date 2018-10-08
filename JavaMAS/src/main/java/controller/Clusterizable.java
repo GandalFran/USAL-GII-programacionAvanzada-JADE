@@ -1,4 +1,4 @@
-package ClusterServices.DataTypes;
+package controller;
 
 public interface Clusterizable {
 	int getId();
