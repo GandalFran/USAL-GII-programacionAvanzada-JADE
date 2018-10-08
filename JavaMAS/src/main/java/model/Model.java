@@ -1,5 +1,9 @@
 package model;
 
+import java.util.List;
+
+import POJO.Cluster;
+
 public interface Model<T> {	
 	
 	void addAllElements(List<T> elements);

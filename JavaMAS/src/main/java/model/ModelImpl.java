@@ -1,5 +1,10 @@
 package model;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import POJO.Cluster;
+
 public class ModelImpl<T> implements Model<T>{
 
 	private List<T> elementList;
@@ -22,12 +27,12 @@ public class ModelImpl<T> implements Model<T>{
 	
 	@Override
 	public List<T> getAllElements() {
-		return this.elementList.clone();
+		return new ArrayList<>( this.elementList );
 	}
 
 	@Override
 	public List<Cluster<T>> getAllClusters() {
-		return this.clusterList.clone();
+		return new ArrayList<>( this.clusterList);
 	}
 	
 }

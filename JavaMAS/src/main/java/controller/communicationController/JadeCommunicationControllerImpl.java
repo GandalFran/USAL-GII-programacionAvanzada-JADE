@@ -25,11 +25,14 @@ public class JadeCommunicationControllerImpl implements CommunicationController{
 		return msgContent; 
 	}
 	
+
 	@Override
-	public Object receiveMessageNotBlocking(Agent agent, String ontology){
-		throw new UnImplementedException();
+	public Object receiveMessageNotBlocking(Agent agent, String ontology) {
+		// TODO Auto-generated method stub
+		return null;
 	}
-    
+	
+
     /**
      * Env�a un objeto desde el agent eindicado a un agent eque proporciona un servicio del tipo dado
      * @param agent Agente desde el que se va a enviar el servicio
@@ -37,7 +40,7 @@ public class JadeCommunicationControllerImpl implements CommunicationController{
      * @param objeto Mensaje a Enviar
      */
 	@Override
-    public bool sendMessage(Agent agent, String type, Object objeto, String ontology)
+    public boolean sendMessage(Agent agent, String type, Object objeto, String ontology)
     {
         DFAgentDescription[] dfd;
         dfd=buscarAgentes(agent, type);
@@ -157,4 +160,6 @@ public class JadeCommunicationControllerImpl implements CommunicationController{
         
         return null;
     }
+
+
 }

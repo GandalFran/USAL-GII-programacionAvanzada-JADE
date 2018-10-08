@@ -16,13 +16,9 @@ import controller.Clusterizable;
 public class DBSCANClusterServiceImpl<T extends Clusterizable> implements ClusterController<T>
 {
 	@Override
-	public bool clusterize(List<T>toCluster, List<Cluster<T>> clusters );
+	public boolean clusterize(List<T>toCluster, List<Cluster<T>> clusters ) {
+		return false;
+	}
 		
-		clusters = clusteringAlgorithm( toCluster );
-		return  true;
-	}
 	
-	private List<Cluster<T>> clusteringAlgorithm( List<T>toCluster){
-		return null;
-	}
 }

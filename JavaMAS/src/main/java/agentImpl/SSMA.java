@@ -1,6 +1,7 @@
 package agentImpl;
 
-import behaviourImpl.SSMABehaviour;
+import behaviourImpl.MappingBehaviour;
+import behaviourImpl.NotDoingNothingBehaviour;
 import jade.core.Agent;
 import jade.core.behaviours.Behaviour;
 
@@ -9,7 +10,7 @@ public class SSMA extends Agent{
 	private static final long serialVersionUID = 1L;
 
 	public void setup() {
-		Behaviour behaviour = new SSMABehaviour();
+		Behaviour behaviour = /*new MappingBehaviour()*/ new NotDoingNothingBehaviour();
 		this.addBehaviour(behaviour);
 		
 		/*try {

@@ -7,5 +7,5 @@ import controller.Clusterizable;
 
 
 public interface ClusterController<T extends Clusterizable>{
-	bool clusterize(List<T>toCluster, List<Cluster<T>>clusters );
+	boolean clusterize(List<T>toCluster, List<Cluster<T>>clusters );
 }

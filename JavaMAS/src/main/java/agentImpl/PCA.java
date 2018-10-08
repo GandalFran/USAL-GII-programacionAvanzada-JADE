@@ -1,15 +1,17 @@
 package agentImpl;
 
-import behaviourImpl.PCABehaviour;
+import POJO.Project;
+import behaviourImpl.ClusterBehaviour;
+import behaviourImpl.NotDoingNothingBehaviour;
 import jade.core.Agent;
 import jade.core.behaviours.Behaviour;
+import utils.Constants;
 
 public class PCA extends Agent{
 
-	private static final long serialVersionUID = 1L;
 
 	public void setup() {
-		Behaviour behaviour = new PCABehaviour();
+		Behaviour behaviour = /*new ClusterBehaviour<Project>(Constants.PROJECTS_FILE_PATH,Constants.PROJECT_CLUSTERS_FILE_PATH);*/ new NotDoingNothingBehaviour();
 		this.addBehaviour(behaviour);
 		
 		/*try {

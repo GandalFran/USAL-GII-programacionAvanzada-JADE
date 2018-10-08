@@ -1,6 +1,8 @@
 package agentImpl;
 
-import behaviourImpl.DPCABehaviour;
+import POJO.Project;
+import behaviourImpl.EnviromentChangesDetectionBehaviour;
+import behaviourImpl.NotDoingNothingBehaviour;
 import jade.core.Agent;
 import jade.core.behaviours.Behaviour;
 
@@ -9,8 +11,10 @@ public class DPCA extends Agent{
 	private static final long serialVersionUID = 1L;
 
 	public void setup() {
-		Behaviour behaviour = new DPCABehaviour();
+		Behaviour behaviour = /*new EnviromentChangeDetectionBehaviour<Project>();*/ new NotDoingNothingBehaviour();
 		this.addBehaviour(behaviour);
+		
+		//INSTANCIAR PARALELBEHAVIOUR
 		
 		/*try {
 			DFService.register( this,  getAgentDescriptionWithServices() );

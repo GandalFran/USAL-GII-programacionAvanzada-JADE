@@ -1,5 +1,7 @@
 package POJO;
 
+import java.util.List;
+
 public class Cluster <T>{
 
 	private List<T> clusterElements;

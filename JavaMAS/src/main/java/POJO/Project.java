@@ -2,9 +2,7 @@ package POJO;
 
 import java.util.ArrayList;
 import java.util.List;
-
 import controller.Clusterizable;
-import controllers.DataTypes.Integer;
 
 
 public class Project implements Clusterizable{

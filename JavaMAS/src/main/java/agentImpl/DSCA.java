@@ -1,6 +1,8 @@
 package agentImpl;
 
-import behaviourImpl.DSCABehaviour;
+import POJO.Student;
+import behaviourImpl.EnviromentChangesDetectionBehaviour;
+import behaviourImpl.NotDoingNothingBehaviour;
 import jade.core.Agent;
 import jade.core.behaviours.Behaviour;
 
@@ -9,7 +11,7 @@ public class DSCA extends Agent{
 	private static final long serialVersionUID = 1L;
 
 	public void setup() {
-		Behaviour behaviour = new DSCABehaviour();
+		Behaviour behaviour =  /*new EnviromentChangeDetectionBehaviour<Student>();*/ new NotDoingNothingBehaviour();
 		this.addBehaviour(behaviour);
 		
 		/*try {

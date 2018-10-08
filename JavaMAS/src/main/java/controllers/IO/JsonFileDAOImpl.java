@@ -14,7 +14,7 @@ import utils.Utils;
 public class JsonFileDAOImpl<T> implements FileDAO<T>{
 	
 	@Override
-	bool importMultipleObject( String path, List<T> toFill ){
+	public boolean importMultipleObject( String path, List<T> toFill ){
 		String toParse = null;
 		Gson gson = new Gson();
 		List<String> inputList = null;
@@ -33,7 +33,7 @@ public class JsonFileDAOImpl<T> implements FileDAO<T>{
 	}
 	
 	@Override
-	bool exportMultipleObject( String path, List<T> toExport ){
+	public boolean exportMultipleObject( String path, List<T> toExport ){
 		List<String>toWrite = null;
 		Gson gson = new Gson();
 		Path p = new File( path ).toPath();

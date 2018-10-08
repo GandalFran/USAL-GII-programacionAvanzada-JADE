@@ -2,14 +2,18 @@ package controller;
 
 import model.Model;
 import model.ModelImpl;
+
+import java.util.ArrayList;
+import java.util.List;
+
 import POJO.Cluster;
 import controller.clusterizationController.ClusterController;
 import controller.clusterizationController.DBSCANClusterServiceImpl;
-import controller.clusterizationController.List;
-import controller.clusterizationController.bool;
 import controller.communicationController.CommunicationController;
+import controller.communicationController.JadeCommunicationControllerImpl;
 import controllers.IO.FileDAO;
 import controllers.IO.JsonFileDAOImpl;
+import jade.core.Agent;
 
 public class ControllerImpl<T extends Clusterizable> implements Controller<T>{
 
@@ -24,12 +28,20 @@ public class ControllerImpl<T extends Clusterizable> implements Controller<T>{
 		elementDAO = new JsonFileDAOImpl<T>();
 		clusterDAO = new JsonFileDAOImpl<Cluster<T>>();
 		clusterController = new DBSCANClusterServiceImpl<T>();
-		communicationController = new CommnunicationControllerImpl();
+		communicationController = new JadeCommunicationControllerImpl();
 	}
 
 	@Override
-	public bool clusterize(List<T> toCluster, List<Cluster<T>> clusters) {
-		return clusterController.clusterize(toCluster, clusters);
+	public boolean clusterize() {
+		boolean result;
+		List<Cluster<T>> clusters = new ArrayList<>();
+		
+		result = clusterController.clusterize(this.model.getAllElements(), clusters);
+		if(result == true) {
+			this.model.addAllClusters(clusters);
+		}
+		
+		return result;
 	}
 
 	@Override
@@ -43,13 +55,13 @@ public class ControllerImpl<T extends Clusterizable> implements Controller<T>{
 	}
 
 	@Override
-	public bool importElements(String filePath) {
-		bool result;
+	public boolean importElements(String filePath) {
+		boolean result;
 		List<T> toFill = new ArrayList<>();
 		
 		result = elementDAO.importMultipleObject(filePath, toFill);
 		if(result){
-			model.addAll(toFill);
+			model.addAllElements(toFill);
 			return true;
 		}else{
 			return false;
@@ -58,16 +70,16 @@ public class ControllerImpl<T extends Clusterizable> implements Controller<T>{
 	}
 
 	@Override
-	public bool exportElements(String filePath) {
+	public boolean exportElements(String filePath) {
 		return elementDAO.exportMultipleObject(filePath, model.getAllElements());
 	}
 
 	@Override
-	public bool importClusters(String filePath) {
-		bool result;
+	public boolean importClusters(String filePath) {
+		boolean result;
 		List<Cluster<T>> toFill = new ArrayList<>();
 		
-		result = elementDAO.importMultipleObject(filePath, toFill);
+		result = clusterDAO.importMultipleObject(filePath, toFill);
 		if(result){
 			model.addAllClusters(toFill);
 			return true;
@@ -77,14 +89,14 @@ public class ControllerImpl<T extends Clusterizable> implements Controller<T>{
 	}
 
 	@Override
-	public bool exportClusters(String filePath) {
-		return elementDAO.exportMultipleObject(filePath, model.getAllClusters());
+	public boolean exportClusters(String filePath) {
+		return clusterDAO.exportMultipleObject(filePath, model.getAllClusters());
 	}
 
 
 	@Override
-	public bool sendMessage(Agent agent, String type, Object objeto, String ontology) {
-		return communicationController.sendMessage(agent, type, objeto, ontology)
+	public boolean sendMessage(Agent agent, String type, Object objeto, String ontology) {
+		return communicationController.sendMessage(agent, type, objeto, ontology);
 	}
 
 	@Override

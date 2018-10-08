@@ -1,15 +1,18 @@
 package agentImpl;
 
-import behaviourImpl.SCABehaviour;
+import POJO.Student;
+import behaviourImpl.ClusterBehaviour;
+import behaviourImpl.NotDoingNothingBehaviour;
 import jade.core.Agent;
 import jade.core.behaviours.Behaviour;
+import utils.Constants;
 
 public class SCA extends Agent{
 
 	private static final long serialVersionUID = 1L;
 
 	public void setup() {
-		Behaviour behaviour = new SCABehaviour();
+		Behaviour behaviour = /*new ClusterBehaviour<Student>(Constants.STUDENTS_FILE_PATH,Constants.STUDENT_CLUSTERS_FILE_PATH);*/ new NotDoingNothingBehaviour();
 		this.addBehaviour(behaviour);
 		
 		/*try {
