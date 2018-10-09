@@ -10,6 +10,8 @@ public class MappingBehaviour extends CyclicBehaviour{
 	public void action() {
 		//reciveB(PCA y/o SCA)
 		//Confirmar tarea
+		
+		Con
 		//do algorithms
 	}
 
