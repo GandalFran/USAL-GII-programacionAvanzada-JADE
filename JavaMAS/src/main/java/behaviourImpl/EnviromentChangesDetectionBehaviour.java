@@ -1,8 +1,8 @@
 package behaviourImpl;
 
-import controller.Clusterizable;
 import controller.Controller;
-import controller.ControllerImpl;
+import controller.clusterizationController.Clusterizable;
+import controller.controllerImpl.ControllerImpl;
 import jade.core.behaviours.CyclicBehaviour;
 
 public class EnviromentChangesDetectionBehaviour<T extends Clusterizable> extends CyclicBehaviour{

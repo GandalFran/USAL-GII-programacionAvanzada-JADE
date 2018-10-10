@@ -4,9 +4,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 import POJO.Cluster;
-import controller.Clusterizable;
 import controller.Controller;
-import controller.ControllerImpl;
+import controller.clusterizationController.Clusterizable;
+import controller.controllerImpl.ControllerImpl;
 import jade.core.behaviours.CyclicBehaviour;
 
 public class ClusterBehaviour<T extends Clusterizable> extends CyclicBehaviour{
@@ -25,8 +25,7 @@ public class ClusterBehaviour<T extends Clusterizable> extends CyclicBehaviour{
 	public void action() {
 		boolean result;
 		
-		//reciveB(msg)
-		//sebnd(msg.emisor aceptar tarea);
+		controller.receiveMessage();
 		
 		result = controller.importElements(elementsFilePath);
 		if(result == true )
@@ -37,6 +36,7 @@ public class ClusterBehaviour<T extends Clusterizable> extends CyclicBehaviour{
 		
 		if( false == result ) {
 			//send( msg.emisor fallo )
+			controller.sendMessage(, content);
 		}else {
 			//send( msg.emisor bien )
 			//send( SSMA y SPMA tarea)

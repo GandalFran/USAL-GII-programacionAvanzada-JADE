@@ -1,4 +1,4 @@
-package controller;
+package controller.controllerImpl;
 
 import model.Model;
 import model.ModelImpl;
@@ -11,14 +11,15 @@ import java.util.Map;
 import POJO.Cluster;
 import POJO.Project;
 import POJO.Student;
+import controller.Controller;
 import controller.clusterizationController.ClusterController;
-import controller.clusterizationController.DBSCANClusterServiceImpl;
+import controller.clusterizationController.Clusterizable;
 import controller.communicationController.CommunicationController;
-import controller.communicationController.JadeCommunicationControllerImpl;
+import controller.mappingController.MappingController;
 import controllers.IO.FileDAO;
 import controllers.IO.JsonFileDAOImpl;
-import controllers.IO.MapFileDAO;
-import controllers.IO.MapFileDAOImpl;
+import controllers.IO.DAOImpl.MapFileDAO;
+import controllers.IO.DAOImpl.MapFileDAOImpl;
 import jade.core.Agent;
 import java.util.HashMap;
 
@@ -34,7 +35,7 @@ public class ControllerImpl<T extends Clusterizable> implements Controller<T>, M
 		model = new ModelImpl<T>();
 		elementDAO = new JsonFileDAOImpl<T>();
 		clusterDAO = new JsonFileDAOImpl<Cluster<T>>();
-		clusterController = new DBSCANClusterServiceImpl<T>();
+		clusterController = new DBSCANClusterizationControllermpl<T>();
 		communicationController = new JadeCommunicationControllerImpl();
 	}
 
@@ -102,13 +103,15 @@ public class ControllerImpl<T extends Clusterizable> implements Controller<T>, M
 
 
 	@Override
-	public boolean sendMessage(Agent agent, String type, Object objeto, String ontology) {
-		return communicationController.sendMessage(agent, type, objeto, ontology);
+	public boolean sendMessage(String agentName, Object content) {
+		return true;
+		//return communicationController.sendMessage();
 	}
 
 	@Override
-	public Object receiveMessage(Agent agent, String ontology) {
-		return communicationController.receiveMessageBlocking(agent, ontology);
+	public Object receiveMessage( ) {
+		return true;
+		//return communicationController.receiveMessageBlocking();
 	}
 
 	@Override

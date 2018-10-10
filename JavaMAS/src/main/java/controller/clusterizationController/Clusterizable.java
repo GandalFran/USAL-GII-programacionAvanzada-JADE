@@ -1,4 +1,4 @@
-package controller;
+package controller.clusterizationController;
 
 public interface Clusterizable {
 	int getId();

@@ -18,6 +18,6 @@ public interface Controller<T>{
 	boolean importClusters( String filePath);
 	boolean exportClusters( String filePath);
 	
-	boolean sendMessage(Agent agent, String type, Object objeto, String ontology);
-	Object receiveMessage(Agent agent, String ontology);
+	boolean sendMessage(String agentName, Object content);
+	Object receiveMessage();
 }

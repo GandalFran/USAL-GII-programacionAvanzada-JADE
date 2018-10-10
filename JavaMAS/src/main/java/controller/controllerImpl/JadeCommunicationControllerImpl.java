@@ -1,9 +1,10 @@
-package controller.communicationController;
+package controller.controllerImpl;
 
 import java.io.IOException;
 import java.io.Serializable;
 import java.util.Iterator;
 
+import controller.communicationController.CommunicationController;
 import jade.content.lang.sl.SLCodec;
 import jade.core.AID;
 import jade.core.Agent;
