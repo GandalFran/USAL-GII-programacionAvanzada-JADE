@@ -2,20 +2,27 @@ package controller;
 
 import model.Model;
 import model.ModelImpl;
+import utils.Constants;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 import POJO.Cluster;
+import POJO.Project;
+import POJO.Student;
 import controller.clusterizationController.ClusterController;
 import controller.clusterizationController.DBSCANClusterServiceImpl;
 import controller.communicationController.CommunicationController;
 import controller.communicationController.JadeCommunicationControllerImpl;
 import controllers.IO.FileDAO;
 import controllers.IO.JsonFileDAOImpl;
+import controllers.IO.MapFileDAO;
+import controllers.IO.MapFileDAOImpl;
 import jade.core.Agent;
+import java.util.HashMap;
 
-public class ControllerImpl<T extends Clusterizable> implements Controller<T>{
+public class ControllerImpl<T extends Clusterizable> implements Controller<T>, MappingController{
 
 	private Model<T> model;
 	private FileDAO<T> elementDAO;
@@ -103,6 +110,32 @@ public class ControllerImpl<T extends Clusterizable> implements Controller<T>{
 	public Object receiveMessage(Agent agent, String ontology) {
 		return communicationController.receiveMessageBlocking(agent, ontology);
 	}
+
+	@Override
+	public boolean doMappingAndExport(String filePath, List<Cluster<Student>> studentClusterList, List<Student> helpersList) {
+		Map<Cluster<Student>,Student> mappingResult = new HashMap<Cluster<Student>,Student>();
+		MapFileDAO<Cluster<Student>, Student> mapsDAO = new MapFileDAOImpl<Cluster<Student>, Student>();
+		
+		//Do algorithm
+		
+		mapsDAO.exportMultipleObject(filePath, mappingResult);
+
+		return true;
+	}
+
+	@Override
+	public boolean doMappingAndExport(String filePath, List<Cluster<Student>> studentClusterList, ArrayList<Project> projectList) {
+		Map<Cluster<Student>,Project> mappingResult = new HashMap<Cluster<Student>,Project>();
+		MapFileDAO<Cluster<Student>, Project> mapsDAO = new MapFileDAOImpl<Cluster<Student>, Project>();
+		
+		//Do algorithm
+		
+		mapsDAO.exportMultipleObject(filePath, mappingResult);
+
+		return true;
+	}
+
+
 
 
 	

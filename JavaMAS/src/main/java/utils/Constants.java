@@ -6,6 +6,8 @@ public interface Constants {
 	String STUDENTS_FILE_PATH = "";
 	String PROJECT_CLUSTERS_FILE_PATH = "";
 	String STUDENT_CLUSTERS_FILE_PATH = "";
+	String STUDENT_HELPERS_FILE_PATH = "";
+	String STUDENT_PROJECTS_FILE_PATH = "";
 	
 	String PCA_NAME = "PCA";
 	String SCA_NAME = "SCA";
