@@ -9,5 +9,5 @@ import POJO.Student;
 
 public interface MappingController {
 	boolean doMappingAndExport(String filePath, List<Cluster<Student>>studentClusterList, List<Student> helpersList);
-	boolean doMappingAndExport(String filePath, List<Cluster<Student>>studentClusterList, ArrayList<Project> projectList);
+	boolean doMappingAndExport(String filePath, List<Cluster<Student>>studentClusterList, ArrayList<Cluster<Project>> projectClusterList);
 }

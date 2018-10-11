@@ -3,6 +3,7 @@ package controller.controllerImpl;
 import model.Model;
 import model.ModelImpl;
 import utils.Constants;
+import utils.Utils;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -119,7 +120,39 @@ public class ControllerImpl<T extends Clusterizable> implements Controller<T>, M
 		Map<Cluster<Student>,Student> mappingResult = new HashMap<Cluster<Student>,Student>();
 		MapFileDAO<Cluster<Student>, Student> mapsDAO = new MapFileDAOImpl<Cluster<Student>, Student>();
 		
-		//Do algorithm
+		for (Cluster<Student> studentCluster: studentClusterList) {
+			List<Student> studentList = studentCluster.getClusterElements();
+			Integer[] averageSkills = studentList.get(0).getClusterParametersArray();
+			
+			// The average skills of the students are calculated
+			for (int i = 1; i < studentList.size(); i++)
+				for (int j = 0; j < averageSkills.length; j++)
+					averageSkills[j] += studentList.get(i).getClusterParametersArray()[j];
+			
+			for (int i = 0; i < averageSkills.length; i++)
+				averageSkills[i] /= studentList.size();
+			
+			// you are looking for a helper who has slightly better skills
+			for (Student helper: helpersList) {
+				Integer[] helperSkills = helper.getClusterParametersArray();
+				boolean flag = true;
+				
+				for (int i = 0; i < helperSkills.length; i++) {
+					int difference = helperSkills[i].compareTo(averageSkills[i]);
+					
+					if (difference < Constants.DELTA || difference > 2*Constants.DELTA) {
+						flag = false;
+						break;
+					}
+				}
+				
+				// Adding the match.
+				if(flag) {
+					mappingResult.put(studentCluster, helper);
+					break;
+				}
+			}
+		}
 		
 		mapsDAO.exportMultipleObject(filePath, mappingResult);
 
@@ -127,11 +160,57 @@ public class ControllerImpl<T extends Clusterizable> implements Controller<T>, M
 	}
 
 	@Override
-	public boolean doMappingAndExport(String filePath, List<Cluster<Student>> studentClusterList, ArrayList<Project> projectList) {
+	public boolean doMappingAndExport(String filePath, List<Cluster<Student>>studentClusterList, ArrayList<Cluster<Project>> projectClusterList) {
 		Map<Cluster<Student>,Project> mappingResult = new HashMap<Cluster<Student>,Project>();
 		MapFileDAO<Cluster<Student>, Project> mapsDAO = new MapFileDAOImpl<Cluster<Student>, Project>();
 		
-		//Do algorithm
+		for (Cluster<Student> studentCluster: studentClusterList) {
+			List<Student> studentList = studentCluster.getClusterElements();
+			Integer[] averageSkills = studentList.get(0).getClusterParametersArray();
+			
+			// The average skills of the students are calculated
+			for (int i = 1; i < studentList.size(); i++)
+				for (int j = 0; j < averageSkills.length; j++)
+					averageSkills[j] += studentList.get(i).getClusterParametersArray()[j];
+			
+			for (int i = 0; i < averageSkills.length; i++)
+				averageSkills[i] /= studentList.size();
+			
+			// We are looking for a projects' cluster that have skills similar 
+			// to the average of the students' skills.
+			for (Cluster<Project> projectCluster: projectClusterList) {
+				if (Constants.EPSILON > Utils.euclidianDistance(projectCluster.getClusterElements().get(0).getClusterParametersArray(), averageDistance)) {
+					boolean flag = true;
+					
+					// We are looking for a project that is suitable for student cluster.
+					for (Project project: projectCluster.getClusterElements()) {
+						Integer[] projectSkills = project.getClusterParametersArray();
+						flag = true;
+						
+						for (int i = 0; i < projectSkills.length; i++) {
+							int difference = projectSkills[i].compareTo(averageSkills[i]);
+							
+							if (difference < 0 || difference > Constants.DELTA) {
+								flag = false;
+								break;
+							}
+						}
+						
+						// Adding the match.
+						if(flag) {
+							mappingResult.put(studentCluster, project);
+							break;
+						}
+					}
+					
+					// If not found a suitable project, it will match with the first project of the project cluster.
+					if (!flag)
+						mappingResult.put(studentCluster, projectCluster.getClusterElements().get(0));
+					
+					break;
+				}
+			}	
+		}
 		
 		mapsDAO.exportMultipleObject(filePath, mappingResult);
 

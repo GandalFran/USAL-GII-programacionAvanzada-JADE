@@ -28,5 +28,8 @@ public interface Constants {
 	String SPMA_SSMA_MATCHING_SERVICE_TYPE = "MATCHING_SERVICE_TYPE";
 	
 	String ONTOLY_NAME = "MAIN_ONTOLOGY";
+	
+	float EPSILON = 10.0f;
+	float DELTA = 5.0f;
 
 }
