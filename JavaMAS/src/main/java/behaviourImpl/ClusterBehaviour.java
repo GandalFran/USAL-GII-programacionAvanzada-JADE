@@ -11,6 +11,10 @@ import jade.core.behaviours.CyclicBehaviour;
 
 public class ClusterBehaviour<T extends Clusterizable> extends CyclicBehaviour{
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private String elementsFilePath;
 	private String clustersFilePath;
 	private Controller<T> controller;
@@ -36,7 +40,6 @@ public class ClusterBehaviour<T extends Clusterizable> extends CyclicBehaviour{
 		
 		if( false == result ) {
 			//send( msg.emisor fallo )
-			controller.sendMessage(, content);
 		}else {
 			//send( msg.emisor bien )
 			//send( SSMA y SPMA tarea)

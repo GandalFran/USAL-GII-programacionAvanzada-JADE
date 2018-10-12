@@ -2,12 +2,13 @@ package utils;
 
 public interface Constants {
 
-	String PROJECTS_FILE_PATH = "";
-	String STUDENTS_FILE_PATH = "";
-	String PROJECT_CLUSTERS_FILE_PATH = "";
-	String STUDENT_CLUSTERS_FILE_PATH = "";
-	String STUDENT_HELPERS_FILE_PATH = "";
-	String STUDENT_PROJECTS_FILE_PATH = "";
+	String USER_DESKTOP = System.getProperty("user.home") + "\\Desktop\\";
+	String PROJECTS_FILE_PATH = USER_DESKTOP + "projectData.json";
+	String STUDENTS_FILE_PATH = USER_DESKTOP + "studentData.json";
+	String PROJECT_CLUSTERS_FILE_PATH = USER_DESKTOP + "projectClusterizedData.json";
+	String STUDENT_CLUSTERS_FILE_PATH = USER_DESKTOP + "studentClusterizedData.json";
+	String STUDENT_HELPERS_FILE_PATH  = USER_DESKTOP + "studentGroupsMatchedWithHelpers.json";
+	String STUDENT_PROJECTS_FILE_PATH = USER_DESKTOP + "sutdentGroupsMatchedWithProjects.json";
 	
 	String PCA_NAME = "PCA";
 	String SCA_NAME = "SCA";

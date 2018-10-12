@@ -1,13 +1,12 @@
 package POJO;
 
-import utils.Enumerations.AvailableSkills;
 
 public class Skill {
 	private int id;
-	private AvailableSkills name;
+	private String name;
 	private Integer level;
 	
-	public Skill(int id, AvailableSkills name, int level) {
+	public Skill(int id, String name, int level) {
 		super();
 		this.id = id;
 		this.name = name;
@@ -65,10 +64,10 @@ public class Skill {
 	public void setId(int id) {
 		this.id = id;
 	}
-	public AvailableSkills getName() {
+	public String getName() {
 		return name;
 	}
-	public void setName(AvailableSkills name) {
+	public void setName(String name) {
 		this.name = name;
 	}
 	public int getLevel() {

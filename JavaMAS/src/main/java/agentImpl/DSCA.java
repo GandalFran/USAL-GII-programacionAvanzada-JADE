@@ -17,7 +17,7 @@ public class DSCA extends Agent{
 	private static final long serialVersionUID = 1L;
 
 	public void setup() {
-		Behaviour behaviour =  /*new EnviromentChangeDetectionBehaviour<Student>();*/ new NotDoingNothingBehaviour();
+		Behaviour behaviour =  new EnviromentChangesDetectionBehaviour<Student>();
 		this.addBehaviour(behaviour);
 		
 		try {

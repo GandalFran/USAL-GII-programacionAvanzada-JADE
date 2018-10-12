@@ -17,7 +17,7 @@ public class DPCA extends Agent{
 	private static final long serialVersionUID = 1L;
 
 	public void setup() {
-		Behaviour behaviour = /*new EnviromentChangeDetectionBehaviour<Project>();*/ new NotDoingNothingBehaviour();
+		Behaviour behaviour = new EnviromentChangesDetectionBehaviour<Project>();;
 		this.addBehaviour(behaviour);
 		
 		try {

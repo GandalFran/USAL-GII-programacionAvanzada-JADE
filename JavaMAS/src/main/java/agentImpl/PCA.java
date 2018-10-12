@@ -16,7 +16,7 @@ public class PCA extends Agent{
 
 
 	public void setup() {
-		Behaviour behaviour = /*new ClusterBehaviour<Project>(Constants.PROJECTS_FILE_PATH,Constants.PROJECT_CLUSTERS_FILE_PATH);*/ new NotDoingNothingBehaviour();
+		Behaviour behaviour = new ClusterBehaviour<Project>(Constants.PROJECTS_FILE_PATH,Constants.PROJECT_CLUSTERS_FILE_PATH);
 		this.addBehaviour(behaviour);
 		
 		try {

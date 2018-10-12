@@ -179,7 +179,7 @@ public class ControllerImpl<T extends Clusterizable> implements Controller<T>, M
 			// We are looking for a projects' cluster that have skills similar 
 			// to the average of the students' skills.
 			for (Cluster<Project> projectCluster: projectClusterList) {
-				if (Constants.EPSILON > Utils.euclidianDistance(projectCluster.getClusterElements().get(0).getClusterParametersArray(), averageDistance)) {
+				if (Constants.EPSILON > Utils.euclidianDistance(projectCluster.getClusterElements().get(0).getClusterParametersArray(), averageSkills)) {
 					boolean flag = true;
 					
 					// We are looking for a project that is suitable for student cluster.

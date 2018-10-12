@@ -27,11 +27,11 @@ public class MappingStudentsAndProjectsBehaviour extends CyclicBehaviour{
 		
 		//reciveB( SCA and PCA)
 
-		result = projectController.importElements(Constants.PROJECTS_FILE_PATH);
+		result = projectController.importClusters(Constants.PROJECTS_FILE_PATH);
 		if(false != result )
 			result = studentController.importClusters(Constants.STUDENT_CLUSTERS_FILE_PATH);
 		if(false != result )
-			result =  projectController.doMappingAndExport(Constants.STUDENT_PROJECTS_FILE_PATH,studentController.getAllClusters(),(ArrayList<Project>)projectController.getAllElements());
+			result =  projectController.doMappingAndExport(Constants.STUDENT_PROJECTS_FILE_PATH,studentController.getAllClusters(),(ArrayList<Cluster<Project>>)projectController.getAllClusters());
 		
 		
 		if(result ) {

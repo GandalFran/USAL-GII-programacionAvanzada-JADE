@@ -17,7 +17,7 @@ public class SCA extends Agent{
 	private static final long serialVersionUID = 1L;
 
 	public void setup() {
-		Behaviour behaviour = /*new ClusterBehaviour<Student>(Constants.STUDENTS_FILE_PATH,Constants.STUDENT_CLUSTERS_FILE_PATH);*/ new NotDoingNothingBehaviour();
+		Behaviour behaviour = new ClusterBehaviour<Student>(Constants.STUDENTS_FILE_PATH,Constants.STUDENT_CLUSTERS_FILE_PATH);
 		this.addBehaviour(behaviour);
 		
 		try {

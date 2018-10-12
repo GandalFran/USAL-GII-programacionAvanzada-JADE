@@ -1,5 +1,6 @@
 package agentImpl;
 
+import behaviourImpl.MappingStudentsAndProjectsBehaviour;
 import behaviourImpl.NotDoingNothingBehaviour;
 import jade.content.lang.sl.SLCodec;
 import jade.core.Agent;
@@ -15,7 +16,7 @@ public class SPMA extends Agent{
 	private static final long serialVersionUID = 1L;
 
 	public void setup() {
-		Behaviour behaviour = /*new MappingStudentsAndProjectsBehaviour()*/ new NotDoingNothingBehaviour();
+		Behaviour behaviour = new MappingStudentsAndProjectsBehaviour();
 		this.addBehaviour(behaviour);
 		
 		try {
