@@ -2,15 +2,14 @@ package controller;
 
 import java.util.List;
 
-import POJO.Cluster;
-import jade.core.Agent;
+import POJO.ClusterImpl;
 
 public interface Controller<T>{
 	
 	boolean clusterize();
 		
 	List<T> getAllElements();
-	List<Cluster<T>> getAllClusters();
+	List<ClusterImpl> getAllClusters();
 	
 	boolean importElements( String filePath);
 	boolean exportElements( String filePath);

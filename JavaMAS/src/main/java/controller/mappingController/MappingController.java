@@ -3,11 +3,10 @@ package controller.mappingController;
 import java.util.ArrayList;
 import java.util.List;
 
-import POJO.Cluster;
-import POJO.Project;
+import POJO.ClusterImpl;
 import POJO.Student;
 
 public interface MappingController {
-	boolean doMappingAndExport(String filePath, List<Cluster<Student>>studentClusterList, List<Student> helpersList);
-	boolean doMappingAndExport(String filePath, List<Cluster<Student>>studentClusterList, ArrayList<Cluster<Project>> projectClusterList);
+	boolean doMappingAndExport(String filePath, List<ClusterImpl>studentClusterList, List<Student> helpersList);
+	boolean doMappingAndExport(String filePath, List<ClusterImpl>studentClusterList, ArrayList<ClusterImpl> projectClusterList);
 }

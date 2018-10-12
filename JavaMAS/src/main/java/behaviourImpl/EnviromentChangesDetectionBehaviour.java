@@ -1,19 +1,16 @@
 package behaviourImpl;
 
+import org.apache.commons.math3.ml.clustering.Clusterable;
+
 import controller.Controller;
-import controller.clusterizationController.Clusterizable;
 import controller.controllerImpl.ControllerImpl;
 import jade.core.behaviours.CyclicBehaviour;
 
-public class EnviromentChangesDetectionBehaviour<T extends Clusterizable> extends CyclicBehaviour{
+public class EnviromentChangesDetectionBehaviour<T extends Clusterable> extends CyclicBehaviour{
 
 	private static final long serialVersionUID = 1L;
 
-	Controller<T> controller;
-	
-	public EnviromentChangesDetectionBehaviour() {
-		this.controller = new ControllerImpl<T>();
-	}
+	Controller<T> controller = new ControllerImpl<T>();
 	
 	@Override
 	public void action() {

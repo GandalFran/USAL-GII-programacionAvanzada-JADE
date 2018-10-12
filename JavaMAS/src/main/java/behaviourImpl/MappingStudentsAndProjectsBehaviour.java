@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
-import POJO.Cluster;
+import POJO.ClusterImpl;
 import POJO.Project;
 import POJO.Student;
 import controller.Controller;
@@ -18,7 +18,7 @@ public class MappingStudentsAndProjectsBehaviour extends CyclicBehaviour{
 
 	private Controller<Student> studentController = new ControllerImpl<Student>();
 	private ControllerImpl<Project> projectController = new ControllerImpl<Project>();
-	private MapFileDAO<Cluster<Student>, Project> DAO = new JsonMapFileDAOImpl<Cluster<Student>, Project>();
+	private MapFileDAO<ClusterImpl, Project> DAO = new JsonMapFileDAOImpl<ClusterImpl, Project>();
 	private static final long serialVersionUID = 1L;
 	
 	@Override
@@ -31,7 +31,7 @@ public class MappingStudentsAndProjectsBehaviour extends CyclicBehaviour{
 		if(false != result )
 			result = studentController.importClusters(Constants.STUDENT_CLUSTERS_FILE_PATH);
 		if(false != result )
-			result =  projectController.doMappingAndExport(Constants.STUDENT_PROJECTS_FILE_PATH,studentController.getAllClusters(),(ArrayList<Cluster<Project>>)projectController.getAllClusters());
+			result =  projectController.doMappingAndExport(Constants.STUDENT_PROJECTS_FILE_PATH,studentController.getAllClusters(),(ArrayList<ClusterImpl>)projectController.getAllClusters());
 		
 		
 		if(result ) {

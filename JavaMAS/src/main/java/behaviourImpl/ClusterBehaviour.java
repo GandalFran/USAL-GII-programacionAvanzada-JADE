@@ -1,11 +1,12 @@
 package behaviourImpl;
 
+import org.apache.commons.math3.ml.clustering.Clusterable;
+
 import controller.Controller;
-import controller.clusterizationController.Clusterizable;
 import controller.controllerImpl.ControllerImpl;
 import jade.core.behaviours.CyclicBehaviour;
 
-public class ClusterBehaviour<T extends Clusterizable> extends CyclicBehaviour{
+public class ClusterBehaviour<T extends Clusterable> extends CyclicBehaviour{
 
 	private String elementsFilePath;
 	private String clustersFilePath;

@@ -9,7 +9,9 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
-import POJO.Cluster;
+import org.apache.commons.math3.ml.clustering.Clusterable;
+
+import POJO.ClusterImpl;
 import POJO.Project;
 import POJO.Student;
 import controller.Controller;
@@ -17,25 +19,25 @@ import controller.IOServices.FileDAO;
 import controller.IOServices.MapFileDAO;
 import controller.IOServices.IOServicesImpl.JsonFileDAOImpl;
 import controller.IOServices.IOServicesImpl.JsonMapFileDAOImpl;
+import controller.IOServices.IOServicesImpl.SerializationFileDAOImpl;
 import controller.clusterizationController.ClusterController;
-import controller.clusterizationController.Clusterizable;
 import controller.communicationController.CommunicationController;
 import controller.mappingController.MappingController;
 import jade.core.Agent;
 import java.util.HashMap;
 
-public class ControllerImpl<T extends Clusterizable> implements Controller<T>, MappingController{
+public class ControllerImpl<T extends Clusterable> implements Controller<T>, MappingController{
 
 	private Model<T> model;
 	private FileDAO<T> elementDAO;
-	private FileDAO<Cluster<T>> clusterDAO;
+	private SerializationFileDAOImpl clusterDAO;
 	private ClusterController<T> clusterController;
 	private CommunicationController communicationController;
 	
 	public ControllerImpl(){
 		model = new ModelImpl<T>();
 		elementDAO = new JsonFileDAOImpl<T>();
-		clusterDAO = new JsonFileDAOImpl<Cluster<T>>();
+		clusterDAO = new SerializationFileDAOImpl();
 		clusterController = new DBSCANClusterizationControllermpl<T>();
 		communicationController = new JadeCommunicationControllerImpl();
 	}
@@ -43,7 +45,7 @@ public class ControllerImpl<T extends Clusterizable> implements Controller<T>, M
 	@Override
 	public boolean clusterize() {
 		boolean result;
-		List<Cluster<T>> clusters = new ArrayList<>();
+		List<ClusterImpl> clusters = new ArrayList<>();
 		
 		result = clusterController.clusterize(this.model.getAllElements(), clusters);
 		if(result == true) {
@@ -59,7 +61,7 @@ public class ControllerImpl<T extends Clusterizable> implements Controller<T>, M
 	}
 
 	@Override
-	public List<Cluster<T>> getAllClusters() {
+	public List<ClusterImpl> getAllClusters() {
 		return model.getAllClusters();
 	}
 
@@ -86,7 +88,7 @@ public class ControllerImpl<T extends Clusterizable> implements Controller<T>, M
 	@Override
 	public boolean importClusters(String filePath) {
 		boolean result;
-		List<Cluster<T>> toFill = new ArrayList<>();
+		List<ClusterImpl> toFill = new ArrayList<>();
 		
 		result = clusterDAO.importMultipleObject(filePath, toFill);
 		if(result){
@@ -116,8 +118,8 @@ public class ControllerImpl<T extends Clusterizable> implements Controller<T>, M
 	}
 
 	@Override
-	public boolean doMappingAndExport(String filePath, List<Cluster<Student>> studentClusterList, List<Student> helpersList) {
-		Map<Cluster<Student>,Student> mappingResult = new HashMap<Cluster<Student>,Student>();
+	public boolean doMappingAndExport(String filePath, List<ClusterImpl> studentClusterList, List<Student> helpersList) {
+		/*Map<Cluster<Student>,Student> mappingResult = new HashMap<Cluster<Student>,Student>();
 		MapFileDAO<Cluster<Student>, Student> mapsDAO = new JsonMapFileDAOImpl<Cluster<Student>, Student>();
 		
 		for (Cluster<Student> studentCluster: studentClusterList) {
@@ -156,13 +158,13 @@ public class ControllerImpl<T extends Clusterizable> implements Controller<T>, M
 		
 		
 		mapsDAO.exportMultipleObject(filePath, mappingResult);
-
+*/
 		return true;
 	}
 
 	@Override
-	public boolean doMappingAndExport(String filePath, List<Cluster<Student>>studentClusterList, ArrayList<Cluster<Project>> projectClusterList) {
-		Map<Cluster<Student>,Project> mappingResult = new HashMap<Cluster<Student>,Project>();
+	public boolean doMappingAndExport(String filePath, List<ClusterImpl>studentClusterList, ArrayList<ClusterImpl> projectClusterList) {
+	/*	Map<Cluster<Student>,Project> mappingResult = new HashMap<Cluster<Student>,Project>();
 		MapFileDAO<Cluster<Student>, Project> mapsDAO = new JsonMapFileDAOImpl<Cluster<Student>, Project>();
 		
 		for (Cluster<Student> studentCluster: studentClusterList) {
@@ -214,7 +216,7 @@ public class ControllerImpl<T extends Clusterizable> implements Controller<T>, M
 		}
 		
 		mapsDAO.exportMultipleObject(filePath, mappingResult);
-
+*/
 		return true;
 	}
 

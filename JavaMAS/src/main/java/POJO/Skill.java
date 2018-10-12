@@ -4,9 +4,9 @@ package POJO;
 public class Skill {
 	private int id;
 	private String name;
-	private Integer level;
+	private double level;
 	
-	public Skill(int id, String name, int level) {
+	public Skill(int id, String name, double level) {
 		super();
 		this.id = id;
 		this.name = name;
@@ -31,30 +31,17 @@ public class Skill {
 		final int prime = 31;
 		int result = 1;
 		result = prime * result + id;
-		result = prime * result + ((level == null) ? 0 : level.hashCode());
 		result = prime * result + ((name == null) ? 0 : name.hashCode());
 		return result;
 	}
 
 	@Override
 	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
+		if( null == obj)
 			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		Skill other = (Skill) obj;
-		if (id != other.id)
-			return false;
-		if (level == null) {
-			if (other.level != null)
-				return false;
-		} else if (!level.equals(other.level))
-			return false;
-		if (name != other.name)
-			return false;
-		return true;
+		
+		Skill s = (Skill) obj;
+		return s.level == this.level;
 	}
 
 	public int getId() {
@@ -70,10 +57,10 @@ public class Skill {
 	public void setName(String name) {
 		this.name = name;
 	}
-	public int getLevel() {
+	public double getLevel() {
 		return level;
 	}
-	public void setLevel(int level) {
+	public void setLevel(double level) {
 		if(level > 100)
 			this.level = 100;
 		else if(level < 1)

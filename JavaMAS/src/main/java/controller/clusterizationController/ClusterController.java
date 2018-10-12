@@ -1,9 +1,12 @@
 package controller.clusterizationController;
 
-import POJO.Cluster;
+import POJO.ClusterImpl;
+
 import java.util.List;
 
+import org.apache.commons.math3.ml.clustering.Clusterable;
 
-public interface ClusterController<T extends Clusterizable>{
-	boolean clusterize(List<T>toCluster, List<Cluster<T>>clusters );
+
+public interface ClusterController<T extends Clusterable>{
+	boolean clusterize(List<T>toCluster, List<ClusterImpl>clusters );
 }

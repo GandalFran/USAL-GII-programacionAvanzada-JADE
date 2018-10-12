@@ -3,12 +3,13 @@ package model;
 import java.util.ArrayList;
 import java.util.List;
 
-import POJO.Cluster;
+import POJO.ClusterImpl;
+
 
 public class ModelImpl<T> implements Model<T>{
 
 	private List<T> elementList;
-	private List<Cluster<T>> clusterList;
+	private List<ClusterImpl> clusterList;
 	
 	public ModelImpl(){
 		elementList = new ArrayList<>();
@@ -21,7 +22,7 @@ public class ModelImpl<T> implements Model<T>{
 	}
 
 	@Override
-	public void addAllClusters(List<Cluster<T>> clusters) {
+	public void addAllClusters(List<ClusterImpl> clusters) {
 		this.clusterList.addAll( clusters );	
 	}
 	
@@ -31,7 +32,7 @@ public class ModelImpl<T> implements Model<T>{
 	}
 
 	@Override
-	public List<Cluster<T>> getAllClusters() {
+	public List<ClusterImpl> getAllClusters() {
 		return new ArrayList<>( this.clusterList);
 	}
 	

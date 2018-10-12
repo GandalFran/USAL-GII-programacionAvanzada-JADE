@@ -2,7 +2,6 @@ package agentImpl;
 
 import POJO.Student;
 import behaviourImpl.EnviromentChangesDetectionBehaviour;
-import behaviourImpl.NotDoingNothingBehaviour;
 import jade.content.lang.sl.SLCodec;
 import jade.core.Agent;
 import jade.core.behaviours.Behaviour;

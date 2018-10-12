@@ -3,10 +3,11 @@ package POJO;
 import java.util.ArrayList;
 import java.util.List;
 
-import controller.clusterizationController.Clusterizable;
+import org.apache.commons.math3.ml.clustering.Clusterable;
 
 
-public class Student implements Clusterizable{
+
+public class Student implements Clusterable{
 	private int id;
 	private String name;
 	private List<Skill> skills;
@@ -77,11 +78,11 @@ public class Student implements Clusterizable{
 		this.skills = skills;
 	}
 	
-	
+
 	@Override
-	public Integer[] getClusterParametersArray() {
+	public double[] getPoint() {
 		int i = 0;
-		Integer[] toReturn = new Integer[this.skills.size()];
+		double[] toReturn = new double[this.skills.size()];
 		
 		for(Skill s : this.skills){
 			toReturn[i++] = s.getLevel();

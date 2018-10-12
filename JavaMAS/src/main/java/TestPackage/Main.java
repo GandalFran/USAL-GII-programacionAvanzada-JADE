@@ -1,14 +1,12 @@
 package TestPackage;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
-import POJO.Cluster;
+import POJO.ClusterImpl;
 import POJO.Project;
 import POJO.Student;
-import controller.Controller;
-import controller.IOServices.FileDAO;
-import controller.IOServices.IOServicesImpl.JsonFileDAOImpl;
 import controller.controllerImpl.ControllerImpl;
 import utils.Constants;
 
@@ -46,17 +44,15 @@ public class Main {
 		System.out.print("[Controller][IO][Project] Exporing clusters - ");
 		result = projectController.exportClusters(Constants.PROJECT_CLUSTERS_FILE_PATH);	System.out.println(result);	
 		
-		
-		/*
-		
-		
+		System.err.println(studentController.getAllClusters());
+
 		
 		System.out.print("Elimine los ficheros de clusterizacion y pulse enter");
 		sc.nextLine();
 		
-		System.out.print("[Controller][Clustering][Student] Importing students - ");
+		System.out.print("[Controller][Clustering][Student] Clusterizing - ");
 		result = studentController.clusterize();	System.out.println(result);	
-		System.out.print("[Controller][Clustering][Project] Importing clusters - ");
+		System.out.print("[Controller][Clustering][Project] Clusterizing - ");
 		result = projectController.clusterize();	System.out.println(result);	
 		
 		
@@ -66,13 +62,10 @@ public class Main {
 		result = projectController.exportClusters(Constants.PROJECT_CLUSTERS_FILE_PATH);	System.out.println(result);	
 		
 		
-		*/
-		
-		
 		
 		System.out.print("[Controller][Mapping][Student] Mapping students-students - ");
 		result = studentController.doMappingAndExport(Constants.STUDENT_HELPERS_FILE_PATH, studentController.getAllClusters(), studentController.getAllElements());	System.out.println(result);	
 		System.out.print("[Controller][Mapping][Project] Mapping students-projects - ");
-		result = studentController.doMappingAndExport(Constants.STUDENT_PROJECTS_FILE_PATH, studentController.getAllClusters(),(ArrayList<Cluster<Project>>) projectController.getAllClusters());	System.out.println(result);
+		result = studentController.doMappingAndExport(Constants.STUDENT_PROJECTS_FILE_PATH, studentController.getAllClusters(),(ArrayList<ClusterImpl>) projectController.getAllClusters());	System.out.println(result);
 	}
 }
