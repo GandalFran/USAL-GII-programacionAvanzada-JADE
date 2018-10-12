@@ -1,14 +1,16 @@
-package controllers.IO;
+package controller.IOServices.IOServicesImpl;
 
 import java.io.File;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
 import com.google.gson.Gson;
 
 import POJO.Project;
+import controller.IOServices.FileDAO;
 import utils.Utils;
 
 public class JsonFileDAOImpl<T> implements FileDAO<T>{
@@ -34,7 +36,7 @@ public class JsonFileDAOImpl<T> implements FileDAO<T>{
 	
 	@Override
 	public boolean exportMultipleObject( String path, List<T> toExport ){
-		List<String>toWrite = null;
+		List<String>toWrite = new ArrayList<>();
 		Gson gson = new Gson();
 		Path p = new File( path ).toPath();
 		

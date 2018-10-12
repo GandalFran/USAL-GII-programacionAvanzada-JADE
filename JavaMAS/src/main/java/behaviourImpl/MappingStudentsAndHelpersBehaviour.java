@@ -3,9 +3,9 @@ package behaviourImpl;
 import POJO.Cluster;
 import POJO.Student;
 import controller.Controller;
+import controller.IOServices.MapFileDAO;
+import controller.IOServices.IOServicesImpl.JsonMapFileDAOImpl;
 import controller.controllerImpl.ControllerImpl;
-import controllers.IO.DAOImpl.MapFileDAO;
-import controllers.IO.DAOImpl.MapFileDAOImpl;
 import jade.core.behaviours.CyclicBehaviour;
 
 import java.util.List;

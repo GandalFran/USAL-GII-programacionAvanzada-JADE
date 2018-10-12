@@ -8,9 +8,9 @@ import POJO.Cluster;
 import POJO.Project;
 import POJO.Student;
 import controller.Controller;
+import controller.IOServices.MapFileDAO;
+import controller.IOServices.IOServicesImpl.JsonMapFileDAOImpl;
 import controller.controllerImpl.ControllerImpl;
-import controllers.IO.DAOImpl.MapFileDAO;
-import controllers.IO.DAOImpl.MapFileDAOImpl;
 import jade.core.behaviours.CyclicBehaviour;
 import utils.Constants;
 
@@ -18,7 +18,7 @@ public class MappingStudentsAndProjectsBehaviour extends CyclicBehaviour{
 
 	private Controller<Student> studentController = new ControllerImpl<Student>();
 	private ControllerImpl<Project> projectController = new ControllerImpl<Project>();
-	private MapFileDAO<Cluster<Student>, Project> DAO = new MapFileDAOImpl<Cluster<Student>, Project>();
+	private MapFileDAO<Cluster<Student>, Project> DAO = new JsonMapFileDAOImpl<Cluster<Student>, Project>();
 	private static final long serialVersionUID = 1L;
 	
 	@Override

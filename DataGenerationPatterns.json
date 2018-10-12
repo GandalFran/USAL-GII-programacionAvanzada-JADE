@@ -1,0 +1,126 @@
+STUDENTS
+[
+  '{{repeat(20)}}',
+  {
+    id: '{{index()}}',
+    name: '{{name}}',
+    skills: [
+      {
+          id: '{{index()}}',
+          name: 'C#',
+        level:  '{{integer(1, 100)}}'
+      },
+      
+      {
+          id: '{{index()}}',
+          name: 'Java',
+        level:  '{{integer(1, 100)}}'
+      },
+      
+      {
+          id: '{{index()}}',
+          name: 'Diseno',
+        level:  '{{integer(1, 100)}}'
+      }
+    ]
+  }
+]
+
+
+PROJECTS
+[
+  '{{repeat(50)}}',
+  {
+    id: '{{index()}}',
+    name: '{{name}}',
+    neededSkills: [
+      {
+          id: '{{index()}}',
+          name: 'C#',
+        level:  '{{integer(1, 100)}}'
+      },
+      
+      {
+          id: '{{index()}}',
+          name: 'Java',
+        level:  '{{integer(1, 100)}}'
+      },
+      
+      {
+          id: '{{index()}}',
+          name: 'Diseno',
+        level:  '{{integer(1, 100)}}'
+      }
+    ]
+  }
+]
+
+STUDENTS CLUSTERS 
+[
+  
+  '{{repeat(10)}}',
+  {
+    clusterElements: [
+      '{{repeat(5)}}',
+      {
+        id: '{{index()}}',
+        name: '{{name}}',
+        skills: [
+          {
+              id: '{{index()}}',
+              name: 'C#',
+            level:  '{{integer(1, 100)}}'
+          },
+
+          {
+              id: '{{index()}}',
+              name: 'Java',
+            level:  '{{integer(1, 100)}}'
+          },
+
+          {
+              id: '{{index()}}',
+              name: 'Diseno',
+            level:  '{{integer(1, 100)}}'
+          }
+        ]
+      }
+    ]
+  }
+]
+
+
+
+PROJECTS CLUSTERS 
+[
+  
+  '{{repeat(10)}}',
+  {
+    clusterElements: [
+      '{{repeat(5)}}',
+      {
+        id: '{{index()}}',
+        name: '{{name}}',
+        neededSkills: [
+          {
+              id: '{{index()}}',
+              name: 'C#',
+            level:  '{{integer(1, 100)}}'
+          },
+
+          {
+              id: '{{index()}}',
+              name: 'Java',
+            level:  '{{integer(1, 100)}}'
+          },
+
+          {
+              id: '{{index()}}',
+              name: 'Diseno',
+            level:  '{{integer(1, 100)}}'
+          }
+        ]
+      }
+    ]
+  }
+]

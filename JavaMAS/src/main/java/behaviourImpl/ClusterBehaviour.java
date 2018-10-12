@@ -1,9 +1,5 @@
 package behaviourImpl;
 
-import java.util.ArrayList;
-import java.util.List;
-
-import POJO.Cluster;
 import controller.Controller;
 import controller.clusterizationController.Clusterizable;
 import controller.controllerImpl.ControllerImpl;
@@ -11,10 +7,6 @@ import jade.core.behaviours.CyclicBehaviour;
 
 public class ClusterBehaviour<T extends Clusterizable> extends CyclicBehaviour{
 
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
 	private String elementsFilePath;
 	private String clustersFilePath;
 	private Controller<T> controller;
@@ -25,17 +17,19 @@ public class ClusterBehaviour<T extends Clusterizable> extends CyclicBehaviour{
 		this.controller = new ControllerImpl<T>();
 	}
 	
+	
 	@Override
 	public void action() {
 		boolean result;
 		
-		controller.receiveMessage();
-		
+		//controller.receiveMessage();
+
 		result = controller.importElements(elementsFilePath);
 		if(result == true )
 			result = controller.clusterize();
 		if(result == true)
 			result = controller.exportClusters(clustersFilePath);
+
 
 		
 		if( false == result ) {

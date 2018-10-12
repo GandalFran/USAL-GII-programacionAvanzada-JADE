@@ -13,14 +13,14 @@ import POJO.Cluster;
 import POJO.Project;
 import POJO.Student;
 import controller.Controller;
+import controller.IOServices.FileDAO;
+import controller.IOServices.MapFileDAO;
+import controller.IOServices.IOServicesImpl.JsonFileDAOImpl;
+import controller.IOServices.IOServicesImpl.JsonMapFileDAOImpl;
 import controller.clusterizationController.ClusterController;
 import controller.clusterizationController.Clusterizable;
 import controller.communicationController.CommunicationController;
 import controller.mappingController.MappingController;
-import controllers.IO.FileDAO;
-import controllers.IO.JsonFileDAOImpl;
-import controllers.IO.DAOImpl.MapFileDAO;
-import controllers.IO.DAOImpl.MapFileDAOImpl;
 import jade.core.Agent;
 import java.util.HashMap;
 
@@ -98,7 +98,7 @@ public class ControllerImpl<T extends Clusterizable> implements Controller<T>, M
 	}
 
 	@Override
-	public boolean exportClusters(String filePath) {
+	public boolean exportClusters(String filePath) { 
 		return clusterDAO.exportMultipleObject(filePath, model.getAllClusters());
 	}
 
@@ -118,7 +118,7 @@ public class ControllerImpl<T extends Clusterizable> implements Controller<T>, M
 	@Override
 	public boolean doMappingAndExport(String filePath, List<Cluster<Student>> studentClusterList, List<Student> helpersList) {
 		Map<Cluster<Student>,Student> mappingResult = new HashMap<Cluster<Student>,Student>();
-		MapFileDAO<Cluster<Student>, Student> mapsDAO = new MapFileDAOImpl<Cluster<Student>, Student>();
+		MapFileDAO<Cluster<Student>, Student> mapsDAO = new JsonMapFileDAOImpl<Cluster<Student>, Student>();
 		
 		for (Cluster<Student> studentCluster: studentClusterList) {
 			List<Student> studentList = studentCluster.getClusterElements();
@@ -154,6 +154,7 @@ public class ControllerImpl<T extends Clusterizable> implements Controller<T>, M
 			}
 		}
 		
+		
 		mapsDAO.exportMultipleObject(filePath, mappingResult);
 
 		return true;
@@ -162,7 +163,7 @@ public class ControllerImpl<T extends Clusterizable> implements Controller<T>, M
 	@Override
 	public boolean doMappingAndExport(String filePath, List<Cluster<Student>>studentClusterList, ArrayList<Cluster<Project>> projectClusterList) {
 		Map<Cluster<Student>,Project> mappingResult = new HashMap<Cluster<Student>,Project>();
-		MapFileDAO<Cluster<Student>, Project> mapsDAO = new MapFileDAOImpl<Cluster<Student>, Project>();
+		MapFileDAO<Cluster<Student>, Project> mapsDAO = new JsonMapFileDAOImpl<Cluster<Student>, Project>();
 		
 		for (Cluster<Student> studentCluster: studentClusterList) {
 			List<Student> studentList = studentCluster.getClusterElements();

@@ -1,0 +1,1052 @@
+[
+  {
+    "id": 0,
+    "name": 49791,
+    "neededSkills": [
+      {
+        "id": 0,
+        "name": "C#",
+        "level": 71
+      },
+      {
+        "id": 1,
+        "name": "Java",
+        "level": 96
+      },
+      {
+        "id": 2,
+        "name": "Diseno",
+        "level": 95
+      }
+    ]
+  },
+  {
+    "id": 1,
+    "name": 49791,
+    "neededSkills": [
+      {
+        "id": 0,
+        "name": "C#",
+        "level": 63
+      },
+      {
+        "id": 1,
+        "name": "Java",
+        "level": 9
+      },
+      {
+        "id": 2,
+        "name": "Diseno",
+        "level": 80
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "name": 49791,
+    "neededSkills": [
+      {
+        "id": 0,
+        "name": "C#",
+        "level": 83
+      },
+      {
+        "id": 1,
+        "name": "Java",
+        "level": 58
+      },
+      {
+        "id": 2,
+        "name": "Diseno",
+        "level": 91
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "name": 49791,
+    "neededSkills": [
+      {
+        "id": 0,
+        "name": "C#",
+        "level": 74
+      },
+      {
+        "id": 1,
+        "name": "Java",
+        "level": 14
+      },
+      {
+        "id": 2,
+        "name": "Diseno",
+        "level": 59
+      }
+    ]
+  },
+  {
+    "id": 4,
+    "name": 49791,
+    "neededSkills": [
+      {
+        "id": 0,
+        "name": "C#",
+        "level": 62
+      },
+      {
+        "id": 1,
+        "name": "Java",
+        "level": 40
+      },
+      {
+        "id": 2,
+        "name": "Diseno",
+        "level": 77
+      }
+    ]
+  },
+  {
+    "id": 5,
+    "name": 49791,
+    "neededSkills": [
+      {
+        "id": 0,
+        "name": "C#",
+        "level": 85
+      },
+      {
+        "id": 1,
+        "name": "Java",
+        "level": 6
+      },
+      {
+        "id": 2,
+        "name": "Diseno",
+        "level": 39
+      }
+    ]
+  },
+  {
+    "id": 6,
+    "name": 49791,
+    "neededSkills": [
+      {
+        "id": 0,
+        "name": "C#",
+        "level": 18
+      },
+      {
+        "id": 1,
+        "name": "Java",
+        "level": 43
+      },
+      {
+        "id": 2,
+        "name": "Diseno",
+        "level": 62
+      }
+    ]
+  },
+  {
+    "id": 7,
+    "name": 49791,
+    "neededSkills": [
+      {
+        "id": 0,
+        "name": "C#",
+        "level": 46
+      },
+      {
+        "id": 1,
+        "name": "Java",
+        "level": 18
+      },
+      {
+        "id": 2,
+        "name": "Diseno",
+        "level": 25
+      }
+    ]
+  },
+  {
+    "id": 8,
+    "name": 49791,
+    "neededSkills": [
+      {
+        "id": 0,
+        "name": "C#",
+        "level": 53
+      },
+      {
+        "id": 1,
+        "name": "Java",
+        "level": 32
+      },
+      {
+        "id": 2,
+        "name": "Diseno",
+        "level": 47
+      }
+    ]
+  },
+  {
+    "id": 9,
+    "name": 49791,
+    "neededSkills": [
+      {
+        "id": 0,
+        "name": "C#",
+        "level": 89
+      },
+      {
+        "id": 1,
+        "name": "Java",
+        "level": 54
+      },
+      {
+        "id": 2,
+        "name": "Diseno",
+        "level": 92
+      }
+    ]
+  },
+  {
+    "id": 10,
+    "name": 49791,
+    "neededSkills": [
+      {
+        "id": 0,
+        "name": "C#",
+        "level": 95
+      },
+      {
+        "id": 1,
+        "name": "Java",
+        "level": 86
+      },
+      {
+        "id": 2,
+        "name": "Diseno",
+        "level": 73
+      }
+    ]
+  },
+  {
+    "id": 11,
+    "name": 49791,
+    "neededSkills": [
+      {
+        "id": 0,
+        "name": "C#",
+        "level": 30
+      },
+      {
+        "id": 1,
+        "name": "Java",
+        "level": 80
+      },
+      {
+        "id": 2,
+        "name": "Diseno",
+        "level": 47
+      }
+    ]
+  },
+  {
+    "id": 12,
+    "name": 49791,
+    "neededSkills": [
+      {
+        "id": 0,
+        "name": "C#",
+        "level": 44
+      },
+      {
+        "id": 1,
+        "name": "Java",
+        "level": 37
+      },
+      {
+        "id": 2,
+        "name": "Diseno",
+        "level": 2
+      }
+    ]
+  },
+  {
+    "id": 13,
+    "name": 49791,
+    "neededSkills": [
+      {
+        "id": 0,
+        "name": "C#",
+        "level": 6
+      },
+      {
+        "id": 1,
+        "name": "Java",
+        "level": 70
+      },
+      {
+        "id": 2,
+        "name": "Diseno",
+        "level": 28
+      }
+    ]
+  },
+  {
+    "id": 14,
+    "name": 49791,
+    "neededSkills": [
+      {
+        "id": 0,
+        "name": "C#",
+        "level": 26
+      },
+      {
+        "id": 1,
+        "name": "Java",
+        "level": 97
+      },
+      {
+        "id": 2,
+        "name": "Diseno",
+        "level": 25
+      }
+    ]
+  },
+  {
+    "id": 15,
+    "name": 49791,
+    "neededSkills": [
+      {
+        "id": 0,
+        "name": "C#",
+        "level": 43
+      },
+      {
+        "id": 1,
+        "name": "Java",
+        "level": 90
+      },
+      {
+        "id": 2,
+        "name": "Diseno",
+        "level": 49
+      }
+    ]
+  },
+  {
+    "id": 16,
+    "name": 49791,
+    "neededSkills": [
+      {
+        "id": 0,
+        "name": "C#",
+        "level": 52
+      },
+      {
+        "id": 1,
+        "name": "Java",
+        "level": 19
+      },
+      {
+        "id": 2,
+        "name": "Diseno",
+        "level": 46
+      }
+    ]
+  },
+  {
+    "id": 17,
+    "name": 49791,
+    "neededSkills": [
+      {
+        "id": 0,
+        "name": "C#",
+        "level": 31
+      },
+      {
+        "id": 1,
+        "name": "Java",
+        "level": 94
+      },
+      {
+        "id": 2,
+        "name": "Diseno",
+        "level": 13
+      }
+    ]
+  },
+  {
+    "id": 18,
+    "name": 49791,
+    "neededSkills": [
+      {
+        "id": 0,
+        "name": "C#",
+        "level": 8
+      },
+      {
+        "id": 1,
+        "name": "Java",
+        "level": 31
+      },
+      {
+        "id": 2,
+        "name": "Diseno",
+        "level": 62
+      }
+    ]
+  },
+  {
+    "id": 19,
+    "name": 49791,
+    "neededSkills": [
+      {
+        "id": 0,
+        "name": "C#",
+        "level": 88
+      },
+      {
+        "id": 1,
+        "name": "Java",
+        "level": 59
+      },
+      {
+        "id": 2,
+        "name": "Diseno",
+        "level": 36
+      }
+    ]
+  },
+  {
+    "id": 20,
+    "name": 49791,
+    "neededSkills": [
+      {
+        "id": 0,
+        "name": "C#",
+        "level": 41
+      },
+      {
+        "id": 1,
+        "name": "Java",
+        "level": 11
+      },
+      {
+        "id": 2,
+        "name": "Diseno",
+        "level": 9
+      }
+    ]
+  },
+  {
+    "id": 21,
+    "name": 49791,
+    "neededSkills": [
+      {
+        "id": 0,
+        "name": "C#",
+        "level": 33
+      },
+      {
+        "id": 1,
+        "name": "Java",
+        "level": 38
+      },
+      {
+        "id": 2,
+        "name": "Diseno",
+        "level": 84
+      }
+    ]
+  },
+  {
+    "id": 22,
+    "name": 49791,
+    "neededSkills": [
+      {
+        "id": 0,
+        "name": "C#",
+        "level": 57
+      },
+      {
+        "id": 1,
+        "name": "Java",
+        "level": 2
+      },
+      {
+        "id": 2,
+        "name": "Diseno",
+        "level": 14
+      }
+    ]
+  },
+  {
+    "id": 23,
+    "name": 49791,
+    "neededSkills": [
+      {
+        "id": 0,
+        "name": "C#",
+        "level": 26
+      },
+      {
+        "id": 1,
+        "name": "Java",
+        "level": 50
+      },
+      {
+        "id": 2,
+        "name": "Diseno",
+        "level": 93
+      }
+    ]
+  },
+  {
+    "id": 24,
+    "name": 49791,
+    "neededSkills": [
+      {
+        "id": 0,
+        "name": "C#",
+        "level": 16
+      },
+      {
+        "id": 1,
+        "name": "Java",
+        "level": 63
+      },
+      {
+        "id": 2,
+        "name": "Diseno",
+        "level": 8
+      }
+    ]
+  },
+  {
+    "id": 25,
+    "name": 49791,
+    "neededSkills": [
+      {
+        "id": 0,
+        "name": "C#",
+        "level": 71
+      },
+      {
+        "id": 1,
+        "name": "Java",
+        "level": 54
+      },
+      {
+        "id": 2,
+        "name": "Diseno",
+        "level": 98
+      }
+    ]
+  },
+  {
+    "id": 26,
+    "name": 49791,
+    "neededSkills": [
+      {
+        "id": 0,
+        "name": "C#",
+        "level": 64
+      },
+      {
+        "id": 1,
+        "name": "Java",
+        "level": 33
+      },
+      {
+        "id": 2,
+        "name": "Diseno",
+        "level": 98
+      }
+    ]
+  },
+  {
+    "id": 27,
+    "name": 49791,
+    "neededSkills": [
+      {
+        "id": 0,
+        "name": "C#",
+        "level": 57
+      },
+      {
+        "id": 1,
+        "name": "Java",
+        "level": 64
+      },
+      {
+        "id": 2,
+        "name": "Diseno",
+        "level": 60
+      }
+    ]
+  },
+  {
+    "id": 28,
+    "name": 49791,
+    "neededSkills": [
+      {
+        "id": 0,
+        "name": "C#",
+        "level": 82
+      },
+      {
+        "id": 1,
+        "name": "Java",
+        "level": 72
+      },
+      {
+        "id": 2,
+        "name": "Diseno",
+        "level": 82
+      }
+    ]
+  },
+  {
+    "id": 29,
+    "name": 49791,
+    "neededSkills": [
+      {
+        "id": 0,
+        "name": "C#",
+        "level": 42
+      },
+      {
+        "id": 1,
+        "name": "Java",
+        "level": 48
+      },
+      {
+        "id": 2,
+        "name": "Diseno",
+        "level": 63
+      }
+    ]
+  },
+  {
+    "id": 30,
+    "name": 49791,
+    "neededSkills": [
+      {
+        "id": 0,
+        "name": "C#",
+        "level": 69
+      },
+      {
+        "id": 1,
+        "name": "Java",
+        "level": 46
+      },
+      {
+        "id": 2,
+        "name": "Diseno",
+        "level": 12
+      }
+    ]
+  },
+  {
+    "id": 31,
+    "name": 49791,
+    "neededSkills": [
+      {
+        "id": 0,
+        "name": "C#",
+        "level": 38
+      },
+      {
+        "id": 1,
+        "name": "Java",
+        "level": 87
+      },
+      {
+        "id": 2,
+        "name": "Diseno",
+        "level": 64
+      }
+    ]
+  },
+  {
+    "id": 32,
+    "name": 49791,
+    "neededSkills": [
+      {
+        "id": 0,
+        "name": "C#",
+        "level": 24
+      },
+      {
+        "id": 1,
+        "name": "Java",
+        "level": 89
+      },
+      {
+        "id": 2,
+        "name": "Diseno",
+        "level": 23
+      }
+    ]
+  },
+  {
+    "id": 33,
+    "name": 49791,
+    "neededSkills": [
+      {
+        "id": 0,
+        "name": "C#",
+        "level": 53
+      },
+      {
+        "id": 1,
+        "name": "Java",
+        "level": 4
+      },
+      {
+        "id": 2,
+        "name": "Diseno",
+        "level": 48
+      }
+    ]
+  },
+  {
+    "id": 34,
+    "name": 49791,
+    "neededSkills": [
+      {
+        "id": 0,
+        "name": "C#",
+        "level": 51
+      },
+      {
+        "id": 1,
+        "name": "Java",
+        "level": 54
+      },
+      {
+        "id": 2,
+        "name": "Diseno",
+        "level": 29
+      }
+    ]
+  },
+  {
+    "id": 35,
+    "name": 49791,
+    "neededSkills": [
+      {
+        "id": 0,
+        "name": "C#",
+        "level": 17
+      },
+      {
+        "id": 1,
+        "name": "Java",
+        "level": 42
+      },
+      {
+        "id": 2,
+        "name": "Diseno",
+        "level": 18
+      }
+    ]
+  },
+  {
+    "id": 36,
+    "name": 49791,
+    "neededSkills": [
+      {
+        "id": 0,
+        "name": "C#",
+        "level": 29
+      },
+      {
+        "id": 1,
+        "name": "Java",
+        "level": 57
+      },
+      {
+        "id": 2,
+        "name": "Diseno",
+        "level": 27
+      }
+    ]
+  },
+  {
+    "id": 37,
+    "name": 49791,
+    "neededSkills": [
+      {
+        "id": 0,
+        "name": "C#",
+        "level": 83
+      },
+      {
+        "id": 1,
+        "name": "Java",
+        "level": 51
+      },
+      {
+        "id": 2,
+        "name": "Diseno",
+        "level": 3
+      }
+    ]
+  },
+  {
+    "id": 38,
+    "name": 49791,
+    "neededSkills": [
+      {
+        "id": 0,
+        "name": "C#",
+        "level": 70
+      },
+      {
+        "id": 1,
+        "name": "Java",
+        "level": 8
+      },
+      {
+        "id": 2,
+        "name": "Diseno",
+        "level": 31
+      }
+    ]
+  },
+  {
+    "id": 39,
+    "name": 49791,
+    "neededSkills": [
+      {
+        "id": 0,
+        "name": "C#",
+        "level": 97
+      },
+      {
+        "id": 1,
+        "name": "Java",
+        "level": 62
+      },
+      {
+        "id": 2,
+        "name": "Diseno",
+        "level": 50
+      }
+    ]
+  },
+  {
+    "id": 40,
+    "name": 49791,
+    "neededSkills": [
+      {
+        "id": 0,
+        "name": "C#",
+        "level": 75
+      },
+      {
+        "id": 1,
+        "name": "Java",
+        "level": 38
+      },
+      {
+        "id": 2,
+        "name": "Diseno",
+        "level": 71
+      }
+    ]
+  },
+  {
+    "id": 41,
+    "name": 49791,
+    "neededSkills": [
+      {
+        "id": 0,
+        "name": "C#",
+        "level": 45
+      },
+      {
+        "id": 1,
+        "name": "Java",
+        "level": 47
+      },
+      {
+        "id": 2,
+        "name": "Diseno",
+        "level": 3
+      }
+    ]
+  },
+  {
+    "id": 42,
+    "name": 49791,
+    "neededSkills": [
+      {
+        "id": 0,
+        "name": "C#",
+        "level": 37
+      },
+      {
+        "id": 1,
+        "name": "Java",
+        "level": 1
+      },
+      {
+        "id": 2,
+        "name": "Diseno",
+        "level": 80
+      }
+    ]
+  },
+  {
+    "id": 43,
+    "name": 49791,
+    "neededSkills": [
+      {
+        "id": 0,
+        "name": "C#",
+        "level": 48
+      },
+      {
+        "id": 1,
+        "name": "Java",
+        "level": 66
+      },
+      {
+        "id": 2,
+        "name": "Diseno",
+        "level": 92
+      }
+    ]
+  },
+  {
+    "id": 44,
+    "name": 49791,
+    "neededSkills": [
+      {
+        "id": 0,
+        "name": "C#",
+        "level": 19
+      },
+      {
+        "id": 1,
+        "name": "Java",
+        "level": 25
+      },
+      {
+        "id": 2,
+        "name": "Diseno",
+        "level": 56
+      }
+    ]
+  },
+  {
+    "id": 45,
+    "name": 49791,
+    "neededSkills": [
+      {
+        "id": 0,
+        "name": "C#",
+        "level": 12
+      },
+      {
+        "id": 1,
+        "name": "Java",
+        "level": 91
+      },
+      {
+        "id": 2,
+        "name": "Diseno",
+        "level": 81
+      }
+    ]
+  },
+  {
+    "id": 46,
+    "name": 49791,
+    "neededSkills": [
+      {
+        "id": 0,
+        "name": "C#",
+        "level": 16
+      },
+      {
+        "id": 1,
+        "name": "Java",
+        "level": 66
+      },
+      {
+        "id": 2,
+        "name": "Diseno",
+        "level": 83
+      }
+    ]
+  },
+  {
+    "id": 47,
+    "name": 49791,
+    "neededSkills": [
+      {
+        "id": 0,
+        "name": "C#",
+        "level": 81
+      },
+      {
+        "id": 1,
+        "name": "Java",
+        "level": 25
+      },
+      {
+        "id": 2,
+        "name": "Diseno",
+        "level": 63
+      }
+    ]
+  },
+  {
+    "id": 48,
+    "name": 49791,
+    "neededSkills": [
+      {
+        "id": 0,
+        "name": "C#",
+        "level": 51
+      },
+      {
+        "id": 1,
+        "name": "Java",
+        "level": 85
+      },
+      {
+        "id": 2,
+        "name": "Diseno",
+        "level": 29
+      }
+    ]
+  },
+  {
+    "id": 49,
+    "name": 49791,
+    "neededSkills": [
+      {
+        "id": 0,
+        "name": "C#",
+        "level": 50
+      },
+      {
+        "id": 1,
+        "name": "Java",
+        "level": 37
+      },
+      {
+        "id": 2,
+        "name": "Diseno",
+        "level": 6
+      }
+    ]
+  }
+]

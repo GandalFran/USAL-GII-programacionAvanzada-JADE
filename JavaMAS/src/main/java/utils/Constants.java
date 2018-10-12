@@ -31,6 +31,10 @@ public interface Constants {
 	String ONTOLY_NAME = "MAIN_ONTOLOGY";
 	
 	float EPSILON = 10.0f;
-	float DELTA = 5.0f;
+	float DELTA = 5.0f;	
+
+	double MAXRADIUS = 5;
+	int MINPOINTS = 2;
+
 
 }
