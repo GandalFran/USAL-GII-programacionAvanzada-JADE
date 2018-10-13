@@ -16,14 +16,14 @@ public class Utils {
 		return sb.toString();
 	}
 	
-	public static double euclidianDistance(Integer[] onePoint, Integer[] anotherPoint) {
+	public static double euclidianDistance(double[] onePoint, double[] anotherPoint) {
 		double distance = 0.0;
 		
 		if (onePoint.length != anotherPoint.length)
 			return -1;
 		
 		for (int i = 0; i < onePoint.length; i++)
-			distance += Math.pow(onePoint[i].intValue() - anotherPoint[i].intValue(), 2);
+			distance += Math.pow(onePoint[i] - anotherPoint[i], 2);
 		
 		return Math.sqrt(distance);
 	}

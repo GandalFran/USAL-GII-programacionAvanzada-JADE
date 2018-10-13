@@ -119,28 +119,29 @@ public class ControllerImpl<T extends Clusterable> implements Controller<T>, Map
 
 	@Override
 	public boolean doMappingAndExport(String filePath, List<ClusterImpl> studentClusterList, List<Student> helpersList) {
-		/*Map<Cluster<Student>,Student> mappingResult = new HashMap<Cluster<Student>,Student>();
-		MapFileDAO<Cluster<Student>, Student> mapsDAO = new JsonMapFileDAOImpl<Cluster<Student>, Student>();
+		/*Map<ClusterImpl,Student> mappingResult = new HashMap<ClusterImpl,Student>();
+		MapFileDAO<ClusterImpl, Student> mapsDAO = new JsonMapFileDAOImpl<ClusterImpl, Student>();
 		
-		for (Cluster<Student> studentCluster: studentClusterList) {
-			List<Student> studentList = studentCluster.getClusterElements();
-			Integer[] averageSkills = studentList.get(0).getClusterParametersArray();
+		for (ClusterImpl studentCluster: studentClusterList) {
+			List<Student> studentList = (List<Student>)(Object) studentCluster.getClusterElements();
+			
+			double[] averageSkills = studentList.get(0).getPoint();
 			
 			// The average skills of the students are calculated
 			for (int i = 1; i < studentList.size(); i++)
 				for (int j = 0; j < averageSkills.length; j++)
-					averageSkills[j] += studentList.get(i).getClusterParametersArray()[j];
+					averageSkills[j] += studentList.get(i).getPoint()[j];
 			
 			for (int i = 0; i < averageSkills.length; i++)
 				averageSkills[i] /= studentList.size();
 			
 			// you are looking for a helper who has slightly better skills
 			for (Student helper: helpersList) {
-				Integer[] helperSkills = helper.getClusterParametersArray();
+				Integer[] helperSkills = helper.getPoints();
 				boolean flag = true;
 				
 				for (int i = 0; i < helperSkills.length; i++) {
-					int difference = helperSkills[i].compareTo(averageSkills[i]);
+					double difference = helperSkills[i] - averageSkills[i];
 					
 					if (difference < Constants.DELTA || difference > 2*Constants.DELTA) {
 						flag = false;
@@ -157,41 +158,40 @@ public class ControllerImpl<T extends Clusterable> implements Controller<T>, Map
 		}
 		
 		
-		mapsDAO.exportMultipleObject(filePath, mappingResult);
-*/
+		mapsDAO.exportMultipleObject(filePath, mappingResult);*/
 		return true;
 	}
 
 	@Override
 	public boolean doMappingAndExport(String filePath, List<ClusterImpl>studentClusterList, ArrayList<ClusterImpl> projectClusterList) {
-	/*	Map<Cluster<Student>,Project> mappingResult = new HashMap<Cluster<Student>,Project>();
-		MapFileDAO<Cluster<Student>, Project> mapsDAO = new JsonMapFileDAOImpl<Cluster<Student>, Project>();
+		/*Map<ClusterImpl,Project> mappingResult = new HashMap<ClusterImpl,Project>();
+		MapFileDAO<ClusterImpl, Project> mapsDAO = new JsonMapFileDAOImpl<ClusterImpl, Project>();
 		
-		for (Cluster<Student> studentCluster: studentClusterList) {
-			List<Student> studentList = studentCluster.getClusterElements();
-			Integer[] averageSkills = studentList.get(0).getClusterParametersArray();
+		for (ClusterImpl studentCluster: studentClusterList) {
+			List<Student> studentList = (List<Student>)(Object) studentCluster.getClusterElements();
+			double[] averageSkills = studentList.get(0).getPoint();
 			
 			// The average skills of the students are calculated
 			for (int i = 1; i < studentList.size(); i++)
 				for (int j = 0; j < averageSkills.length; j++)
-					averageSkills[j] += studentList.get(i).getClusterParametersArray()[j];
+					averageSkills[j] += studentList.get(i).getPoint()[j];
 			
 			for (int i = 0; i < averageSkills.length; i++)
 				averageSkills[i] /= studentList.size();
 			
 			// We are looking for a projects' cluster that have skills similar 
 			// to the average of the students' skills.
-			for (Cluster<Project> projectCluster: projectClusterList) {
-				if (Constants.EPSILON > Utils.euclidianDistance(projectCluster.getClusterElements().get(0).getClusterParametersArray(), averageSkills)) {
+			for (ClusterImpl projectCluster: projectClusterList) {
+				if (Constants.EPSILON > Utils.euclidianDistance(((Project) projectCluster.getClusterElements().get(0)).getPoint(), averageSkills)) {
 					boolean flag = true;
 					
 					// We are looking for a project that is suitable for student cluster.
-					for (Project project: projectCluster.getClusterElements()) {
-						Integer[] projectSkills = project.getClusterParametersArray();
+					for (Project project: (List<Project>)(Object) projectCluster.getClusterElements()) {
+						double[] projectSkills = project.getPoint();
 						flag = true;
 						
 						for (int i = 0; i < projectSkills.length; i++) {
-							int difference = projectSkills[i].compareTo(averageSkills[i]);
+							double difference = projectSkills[i] - averageSkills[i];
 							
 							if (difference < 0 || difference > Constants.DELTA) {
 								flag = false;
@@ -215,8 +215,8 @@ public class ControllerImpl<T extends Clusterable> implements Controller<T>, Map
 			}	
 		}
 		
-		mapsDAO.exportMultipleObject(filePath, mappingResult);
-*/
+		mapsDAO.exportMultipleObject(filePath, mappingResult);*/
+
 		return true;
 	}
 
