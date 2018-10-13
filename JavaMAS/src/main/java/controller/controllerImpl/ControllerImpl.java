@@ -24,6 +24,8 @@ import controller.clusterizationController.ClusterController;
 import controller.communicationController.CommunicationController;
 import controller.mappingController.MappingController;
 import jade.core.Agent;
+import jade.lang.acl.ACLMessage;
+
 import java.util.HashMap;
 
 public class ControllerImpl<T extends Clusterable> implements Controller<T>, MappingController{
@@ -106,15 +108,13 @@ public class ControllerImpl<T extends Clusterable> implements Controller<T>, Map
 
 
 	@Override
-	public boolean sendMessage(String agentName, Object content) {
-		return true;
-		//return communicationController.sendMessage();
+	public boolean sendMessage(Agent agent, String type, Object objeto, String ontology) {
+		return communicationController.sendMessage(agent,type,objeto,ontology);
 	}
 
 	@Override
-	public Object receiveMessage( ) {
-		return true;
-		//return communicationController.receiveMessageBlocking();
+	public ACLMessage receiveMessage(Agent agent, String ontology) {
+		return communicationController.receiveMessageBlocking(agent,ontology);
 	}
 
 	@Override

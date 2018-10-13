@@ -6,6 +6,7 @@ import controller.IOServices.MapFileDAO;
 import controller.IOServices.IOServicesImpl.JsonMapFileDAOImpl;
 import controller.controllerImpl.ControllerImpl;
 import jade.core.behaviours.CyclicBehaviour;
+import jade.lang.acl.ACLMessage;
 
 import java.util.List;
 import java.util.Map;
@@ -21,7 +22,11 @@ public class MappingStudentsAndHelpersBehaviour extends CyclicBehaviour{
 	public void action() {
 		boolean result;
 		
-		//reciveB( SCA)
+		ACLMessage msg=studentController.receiveMessage(myAgent,Constants.ONTOLY_NAME);
+		
+		if(msg.getContent().equals("fallo")) {
+			System.out.println("Recibido un mensaje de fallo\n");
+		}
 
 		result = studentController.importElements(Constants.STUDENTS_FILE_PATH);
 		if(false != result )
@@ -29,10 +34,14 @@ public class MappingStudentsAndHelpersBehaviour extends CyclicBehaviour{
 		if(false != result )
 			result = studentController.doMappingAndExport(Constants.STUDENT_HELPERS_FILE_PATH,studentController.getAllClusters(),studentController.getAllElements());
 		
-		if(result ) {
-			//send(SCA) confirmation
+		if(result) {
+			if(!studentController.sendMessage(myAgent,Constants.SCA_SERVICE_NAME,"bien",Constants.ONTOLY_NAME)) {
+				System.out.println("Error al enviar mensaje a SCA");
+			}
 		}else {
-			//send(SCA) trouble
+			if(!studentController.sendMessage(myAgent,Constants.SCA_SERVICE_NAME,"fallo",Constants.ONTOLY_NAME)) {
+				System.out.println("Error al enviar mensaje a SCA");
+			}
 		}
 			
 	}

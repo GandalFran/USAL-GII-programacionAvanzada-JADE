@@ -4,7 +4,10 @@ import org.apache.commons.math3.ml.clustering.Clusterable;
 
 import controller.Controller;
 import controller.controllerImpl.ControllerImpl;
+import jade.core.AID;
 import jade.core.behaviours.CyclicBehaviour;
+import jade.lang.acl.ACLMessage;
+import utils.Constants;
 
 public class ClusterBehaviour<T extends Clusterable> extends CyclicBehaviour{
 
@@ -23,7 +26,12 @@ public class ClusterBehaviour<T extends Clusterable> extends CyclicBehaviour{
 	public void action() {
 		boolean result;
 		
-		//controller.receiveMessage();
+		ACLMessage msg = controller.receiveMessage(myAgent,Constants.ONTOLY_NAME);
+		
+		if(msg.getContent().equals("fallo")) {
+			System.out.println("Recibido un mensaje de fallo\n");
+		}
+		AID sender = msg.getSender();
 
 		result = controller.importElements(elementsFilePath);
 		if(result == true )
@@ -34,10 +42,19 @@ public class ClusterBehaviour<T extends Clusterable> extends CyclicBehaviour{
 
 		
 		if( false == result ) {
-			//send( msg.emisor fallo )
+			if(!controller.sendMessage(myAgent,sender.getLocalName(),"fallo",Constants.ONTOLY_NAME )) {
+				System.out.println("Error al enviar mensaje de fallo\n");
+			}
 		}else {
-			//send( msg.emisor bien )
-			//send( SSMA y SPMA tarea)
+			if(!controller.sendMessage(myAgent,sender.getLocalName(),"bien",Constants.ONTOLY_NAME )) {
+				System.out.println("Error al enviar mensaje de bien\n");
+			}
+			if(!controller.sendMessage(myAgent,Constants.SPMA_SERVICE_NAME,"bien",Constants.ONTOLY_NAME )) {
+				System.out.println("Error al enviar mensaje a SPMA\n");
+			}
+			if(!controller.sendMessage(myAgent,Constants.SSMA_SERVICE_NAME,"bien",Constants.ONTOLY_NAME )) {
+				System.out.println("Error al enviar mensaje a SSMA\n");
+			}
 		}
 		
 	}

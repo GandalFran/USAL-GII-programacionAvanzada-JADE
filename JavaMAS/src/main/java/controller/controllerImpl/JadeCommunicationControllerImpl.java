@@ -20,15 +20,14 @@ import jade.lang.acl.MessageTemplate;
 public class JadeCommunicationControllerImpl implements CommunicationController{
 	
 	@Override
-	public Object receiveMessageBlocking(Agent agent, String ontology) {
+	public ACLMessage receiveMessageBlocking(Agent agent, String ontology) {
 		ACLMessage msg= agent.blockingReceive(MessageTemplate.and(MessageTemplate.MatchPerformative(ACLMessage.REQUEST), MessageTemplate.MatchOntology(ontology)));
-		Object msgContent = msg.getContent();
-		return msgContent; 
+		return msg;
 	}
 	
 
 	@Override
-	public Object receiveMessageNotBlocking(Agent agent, String ontology) {
+	public ACLMessage receiveMessageNotBlocking(Agent agent, String ontology) {
 		// TODO Auto-generated method stub
 		return null;
 	}
