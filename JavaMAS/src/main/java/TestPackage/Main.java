@@ -7,7 +7,7 @@ import java.util.Scanner;
 import POJO.ClusterImpl;
 import POJO.Project;
 import POJO.Student;
-import controller.controllerImpl.ControllerImpl;
+import controller.controllerImpl.ProjectControllerImpl;
 import utils.Constants;
 
 public class Main {
@@ -17,8 +17,8 @@ public class Main {
 		boolean result;
 		Scanner sc = new Scanner(System.in);
 		
-		ControllerImpl<Student> studentController = new ControllerImpl<>();
-		ControllerImpl<Project> projectController = new ControllerImpl<>();
+		ProjectControllerImpl<Student> studentController = new ProjectControllerImpl<>();
+		ProjectControllerImpl<Project> projectController = new ProjectControllerImpl<>();
 	
 		
 		System.out.print("[Controller][IO][Student] Importing students - ");

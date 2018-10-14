@@ -2,6 +2,7 @@ package controller.controllerImpl;
 
 import java.util.List;
 
+import org.apache.commons.math3.ml.clustering.Cluster;
 import org.apache.commons.math3.ml.clustering.Clusterable;
 import org.apache.commons.math3.ml.clustering.DBSCANClusterer;
 
@@ -27,10 +28,17 @@ public class DBSCANClusterizationControllermpl<T extends Clusterable> implements
 		/*El metodo cluster solicita una Collection pero list hereda
 		 * de collection 
 		 */
-		//clusters=clusterer.cluster(toCluster);
+		List<Cluster<T>>clustersTemp=clusterer.cluster(toCluster);
 		
 		if(clusters==null)
 			return false;
+		else {
+			for(Cluster<T> c : clustersTemp) {
+				clusters.add( new ClusterImpl((List<Object>)c.getPoints()));
+			}
+			
+		}
+			
 		
 		return true;
 	}
