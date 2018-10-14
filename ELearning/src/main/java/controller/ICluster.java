@@ -1,9 +1,8 @@
 package controller;
 
-import java.io.Serializable;
 import java.util.List;
 
-public interface ICluster<T> extends Serializable{
+public interface ICluster<T>{
 
 	List<T> getClusterElements();
 	void setClusterElements(List<T> elements);

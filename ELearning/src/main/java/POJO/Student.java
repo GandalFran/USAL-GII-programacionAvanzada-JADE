@@ -1,11 +1,12 @@
 package POJO;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
 import org.apache.commons.math3.ml.clustering.Clusterable;
 
-public class Student implements Clusterable{
+public class Student implements Clusterable,Serializable{
 	private int id;
 	private String name;
 	private List<Skill> skills;

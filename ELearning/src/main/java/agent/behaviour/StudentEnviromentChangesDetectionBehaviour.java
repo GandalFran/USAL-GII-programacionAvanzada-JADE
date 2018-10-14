@@ -21,7 +21,7 @@ public class StudentEnviromentChangesDetectionBehaviour extends CyclicBehaviour{
 		System.out.println("Pulse S si hay cambios en los estudiantes");
 		String s = sc.nextLine();
 		
-		if(s.equalsIgnoreCase("S")) {
+		if(s.toUpperCase().contains("S")) {
 			controller.sendMessage(myAgent, Constants.SCA_NAME, null, Constants.ONTOLY_NAME, ACLMessage.REQUEST);
 			do {
 				msg = controller.receiveMessage(myAgent,Constants.ONTOLY_NAME, ACLMessage.CONFIRM);

@@ -123,7 +123,7 @@ public class StudentControllerImpl implements Controller<Student,StudentCluster,
 		
 		result = mappingController.doMapping(model.getAllClusters(), model.getAllElements(), toFill);
 		if(result)
-			mapDAO.exportMultipleObject(filePath, toFill);
+			result = mapDAO.exportMultipleObject(filePath, toFill);
 		return result;
 	}
 	

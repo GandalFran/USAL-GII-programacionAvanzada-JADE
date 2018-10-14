@@ -42,7 +42,7 @@ public class Utils {
 			return -1;
 		
 		for (int i = 0; i < onePoint.length; i++)
-			distance += Math.pow(onePoint[i] - anotherPoint[i], 2);
+			distance += Math.pow(onePoint[i] - anotherPoint[i], 2)/Constants.DIMENSION;
 		
 		return Math.sqrt(distance);
 	}

@@ -7,6 +7,7 @@ import java.util.Scanner;
 
 import POJO.Project;
 import POJO.Student;
+import POJO.StudentCluster;
 import controller.projectController.ProjectControllerImpl;
 import controller.studentController.StudentControllerImpl;
 import utils.Constants;
@@ -47,7 +48,6 @@ public class Main {
 		System.out.println("\t PROJECT CLUSTERS: " + Arrays.toString(projectController.getAllClusters().toArray()) );
 		
 		
-				
 		System.out.print("Elimine los ficheros de clusterizacion y pulse enter");
 		sc.nextLine();
 		
@@ -56,6 +56,9 @@ public class Main {
 		System.out.print("[Controller][IO][Project] Exporing clusters - ");
 		result = projectController.exportClusters(Constants.PROJECT_CLUSTERS_FILE_PATH);	System.out.println(result);	
 
+		studentController.getAllClusters().clear();
+		projectController.getAllClusters().clear();
+		
 		System.out.print("[Controller][IO][Student] Importing clusters - ");
 		result = studentController.importClusters(Constants.STUDENT_CLUSTERS_FILE_PATH);	System.out.println(result);	
 		System.out.print("[Controller][IO][Project] Importing clusters - ");
@@ -63,8 +66,7 @@ public class Main {
 		
 		System.out.println("[Controller][IO][All] Clustering result");
 		System.out.println("\t STUDENT CLUSTERS: " + Arrays.toString(studentController.getAllClusters().toArray()) );
-		System.out.println("\t PROJECT CLUSTERS: " + Arrays.toString(projectController.getAllClusters().toArray()) );
-		
+		System.out.println("\t PROJECT CLUSTERS: " + Arrays.toString(projectController.getAllClusters().toArray()) );	
 		
 		
 		System.out.print("[Controller][Mapping][Student] Mapping students-students - ");

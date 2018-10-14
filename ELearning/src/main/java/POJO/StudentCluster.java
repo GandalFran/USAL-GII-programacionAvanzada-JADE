@@ -1,11 +1,12 @@
 package POJO;
 
+import java.io.Serializable;
 import java.util.Arrays;
 import java.util.List;
 
 import controller.ICluster;
 
-public class StudentCluster implements ICluster<Student>{
+public class StudentCluster implements ICluster<Student>, Serializable{
 
 	private static final long serialVersionUID = 1L;
 

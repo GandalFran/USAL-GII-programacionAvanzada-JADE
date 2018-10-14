@@ -130,7 +130,8 @@ public class ProjectControllerImpl implements Controller<Project,ProjectCluster,
 		
 		result = mappingController.doMapping(studentClusters, model.getAllClusters(), toFill);
 		if(result)
-			mapDAO.exportMultipleObject(filePath, toFill);
+			result = mapDAO.exportMultipleObject(filePath, toFill);
+		
 		return result;
 	}
 

@@ -1,6 +1,8 @@
 package POJO;
 
-public class Skill {
+import java.io.Serializable;
+
+public class Skill implements Serializable{
 	private int id;
 	private String name;
 	private double level;

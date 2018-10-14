@@ -18,9 +18,11 @@ public class SerialProjectClusterListFileDAOImpl implements ListFileDAO<ProjectC
 	public boolean importMultipleObject(String path, List<ProjectCluster> toFill) {
 		try{
 	        File f = new File(path);
-	        ObjectInputStream ois = new ObjectInputStream(new BufferedInputStream( new FileInputStream(f)));
+	        FileInputStream fis = new FileInputStream(f);
+	        ObjectInputStream ois = new ObjectInputStream(new BufferedInputStream( fis));
 	        toFill = (List<ProjectCluster>) ois.readObject();
 	        ois.close();
+	        fis.close();
 		}catch(Exception e) {
 			return false;
 		}
@@ -32,9 +34,11 @@ public class SerialProjectClusterListFileDAOImpl implements ListFileDAO<ProjectC
 	public boolean exportMultipleObject(String path, List<ProjectCluster> toExport) {
 		try {
 	        File f = new File(path);
-	        ObjectOutputStream oos = new ObjectOutputStream(new BufferedOutputStream(new FileOutputStream(f)));
+	        FileOutputStream fos = new FileOutputStream(f);
+	        ObjectOutputStream oos = new ObjectOutputStream(new BufferedOutputStream(fos));
 	        oos.writeObject(toExport);
 	        oos.close();
+	        fos.close();
 		}catch(Exception e){
 			return false;
 		}
