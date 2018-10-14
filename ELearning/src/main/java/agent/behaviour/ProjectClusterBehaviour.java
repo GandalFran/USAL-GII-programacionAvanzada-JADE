@@ -1,9 +1,7 @@
 package agent.behaviour;
 
-import java.util.Scanner;
 
 import controller.projectController.ProjectControllerImpl;
-import jade.core.AID;
 import jade.core.behaviours.CyclicBehaviour;
 import jade.lang.acl.ACLMessage;
 import utils.Constants;
@@ -27,22 +25,21 @@ public class ProjectClusterBehaviour extends CyclicBehaviour{
 	public void action() {
 		boolean result;
 		ACLMessage msg = null;
-		
-		System.out.println("Pulsa enter");
-		Scanner sc = new Scanner(System.in);
-		sc.nextLine();
 
-		//msg = controller.receiveMessage(myAgent,Constants.ONTOLY_NAME, ACLMessage.INFORM);
-		controller.sendMessage(myAgent, Constants.DPCA_NAME, null, Constants.ONTOLY_NAME, ACLMessage.CFP);
-/*
+		do {
+			msg = controller.receiveMessage(myAgent,Constants.ONTOLY_NAME, ACLMessage.REQUEST);
+		}while(!msg.getSender().getLocalName().equals(Constants.DPCA_NAME));
+		controller.sendMessage(myAgent, Constants.DPCA_NAME, null, Constants.ONTOLY_NAME, ACLMessage.CONFIRM);
+
 		result = controller.importElements(elementsFilePath);
 		if(result == true )
 			result = controller.clusterize();
 		if(result == true)
 			result = controller.exportClusters(clustersFilePath);
-		*/
+		
 		controller.sendMessage(myAgent, Constants.SPMA_NAME, null, Constants.ONTOLY_NAME, ACLMessage.REQUEST);
-		controller.receiveMessage(myAgent,Constants.ONTOLY_NAME, ACLMessage.INFORM);
-		controller.receiveMessage(myAgent,Constants.ONTOLY_NAME, ACLMessage.CONFIRM);
+		do {
+			msg = controller.receiveMessage(myAgent,Constants.ONTOLY_NAME, ACLMessage.CONFIRM);
+		}while(!msg.getSender().getLocalName().equals(Constants.SPMA_NAME));
 	}
 }

@@ -30,7 +30,7 @@ public class DSCA extends Agent{
 		ServiceDescription sd = new ServiceDescription();
 
 		sd.setName( Constants.DSCA_NAME );
-		sd.setType( Constants.DSCA_SERVICE_NAME );
+		sd.setType( Constants.DSCA_NAME );
 		sd.addOntologies( Constants.ONTOLY_NAME );
 		sd.addLanguages( new SLCodec().getName() );
 		dfd.addServices(sd);

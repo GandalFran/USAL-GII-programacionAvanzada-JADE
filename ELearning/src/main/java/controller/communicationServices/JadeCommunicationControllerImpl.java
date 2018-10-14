@@ -54,11 +54,8 @@ public class JadeCommunicationControllerImpl implements CommunicationController{
 	        		aclMessage.addReceiver(dfd[i].getName());
             	
                 aclMessage.setOntology(ontology);
-                //el lenguaje que se define para el servicio
                 aclMessage.setLanguage(new SLCodec().getName());
-                //el mensaje se transmita en XML
                 aclMessage.setEnvelope(new Envelope());
-				//cambio la codificacion de la carta
 				aclMessage.getEnvelope().setPayloadEncoding("ISO8859_1");
                 //aclMessage.getEnvelope().setAclRepresentation(FIPANames.ACLCodec.XML); 
 				if(objeto != null)

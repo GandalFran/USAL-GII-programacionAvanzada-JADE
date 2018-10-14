@@ -1,7 +1,11 @@
 package agent.behaviour;
 
+import java.util.Scanner;
+
 import controller.studentController.StudentControllerImpl;
 import jade.core.behaviours.CyclicBehaviour;
+import jade.lang.acl.ACLMessage;
+import utils.Constants;
 
 public class StudentEnviromentChangesDetectionBehaviour extends CyclicBehaviour{
 
@@ -11,12 +15,18 @@ public class StudentEnviromentChangesDetectionBehaviour extends CyclicBehaviour{
 	
 	@Override
 	public void action() {
-		//checkear actualizaciones
+		ACLMessage msg = null;
+		Scanner sc = new Scanner(System.in);
 		
-		//if hay actualizacion
-			//msg(PCA o SCA)
-			//reciveB(PCA o SCA)
+		System.out.println("Pulse S si hay cambios en los estudiantes");
+		String s = sc.nextLine();
 		
-		block();
+		if(s.equalsIgnoreCase("S")) {
+			controller.sendMessage(myAgent, Constants.SCA_NAME, null, Constants.ONTOLY_NAME, ACLMessage.REQUEST);
+			do {
+				msg = controller.receiveMessage(myAgent,Constants.ONTOLY_NAME, ACLMessage.CONFIRM);
+			}while(!msg.getSender().getLocalName().equals(Constants.SCA_NAME));
+			
+		}
 	}
 }

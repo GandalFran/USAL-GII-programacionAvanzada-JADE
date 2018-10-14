@@ -30,7 +30,7 @@ public class SSMA extends Agent{
 		ServiceDescription sd = new ServiceDescription();
 
 		sd.setName( Constants.SSMA_NAME);
-		sd.setType( Constants.SPMA_SSMA_MATCHING_SERVICE_TYPE);
+		sd.setType( Constants.SSMA_NAME);
 		sd.addOntologies( Constants.ONTOLY_NAME);
 		sd.addLanguages( new SLCodec().getName() );
 		dfd.addServices(sd);

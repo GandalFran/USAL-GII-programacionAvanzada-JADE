@@ -30,7 +30,7 @@ public class SPMA extends Agent{
 		ServiceDescription sd = new ServiceDescription();
 
 		sd.setName( Constants.SPMA_NAME);
-		sd.setType( Constants.SPMA_SERVICE_NAME);
+		sd.setType( Constants.SPMA_NAME);
 		sd.addOntologies( Constants.ONTOLY_NAME);
 		sd.addLanguages( new SLCodec().getName() );
 		dfd.addServices(sd);

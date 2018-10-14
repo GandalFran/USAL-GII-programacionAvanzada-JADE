@@ -30,7 +30,7 @@ public class SCA extends Agent{
 		ServiceDescription sd = new ServiceDescription();
 
 		sd.setName( Constants.SCA_NAME);
-		sd.setType( Constants.SCA_SERVICE_NAME);
+		sd.setType( Constants.SCA_NAME);
 		sd.addOntologies( Constants.ONTOLY_NAME );
 		sd.addLanguages( new SLCodec().getName() );
 		dfd.addServices(sd);
