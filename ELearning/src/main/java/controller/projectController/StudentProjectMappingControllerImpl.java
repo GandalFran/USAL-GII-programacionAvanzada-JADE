@@ -1,7 +1,5 @@
 package controller.projectController;
 
-import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -58,7 +56,7 @@ public class StudentProjectMappingControllerImpl implements MappingController<Pr
 					}
 					
 					// If not found a suitable project, it will match with the first project of the project cluster.
-					List<Project> firstProjectClusterList = (List<Project>)(Object) projectCluster.getClusterElements();
+					List<Project> firstProjectClusterList = projectCluster.getClusterElements();
 					if (!flag)
 						toFill.put(studentCluster, firstProjectClusterList.get(0));
 					
@@ -66,8 +64,6 @@ public class StudentProjectMappingControllerImpl implements MappingController<Pr
 				}
 			}	
 		}
-		
-
 		return true;
 	}
 

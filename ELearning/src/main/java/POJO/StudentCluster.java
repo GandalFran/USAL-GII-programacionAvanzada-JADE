@@ -7,6 +7,8 @@ import controller.ICluster;
 
 public class StudentCluster implements ICluster<Student>{
 
+	private static final long serialVersionUID = 1L;
+
 	private List<Student> clusterElements;
 
 	public StudentCluster(List<Student> clusterElements) {

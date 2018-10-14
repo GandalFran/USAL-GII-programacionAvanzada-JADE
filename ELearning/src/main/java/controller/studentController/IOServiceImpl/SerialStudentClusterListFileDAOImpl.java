@@ -14,6 +14,7 @@ import controller.IOServices.ListFileDAO;
 
 public class SerialStudentClusterListFileDAOImpl implements ListFileDAO<StudentCluster>{
 
+
 	@Override
 	public boolean importMultipleObject(String path, List<StudentCluster> toFill) {
 		try{

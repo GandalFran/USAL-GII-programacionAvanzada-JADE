@@ -7,19 +7,17 @@ import java.util.Map;
 
 import POJO.Project;
 import POJO.ProjectCluster;
-import POJO.Student;
 import POJO.StudentCluster;
 import controller.ClusterizationController;
 import controller.CommunicationController;
 import controller.Controller;
-import controller.JadeCommunicationControllerImpl;
 import controller.MappingController;
 import controller.IOServices.ListFileDAO;
 import controller.IOServices.MapFileDAO;
+import controller.communicationServices.JadeCommunicationControllerImpl;
 import controller.projectController.IOServicesImpl.JsonProjectListFileDAOImpl;
 import controller.projectController.IOServicesImpl.JsonProjectMapFileDAOImpl;
 import controller.projectController.IOServicesImpl.SerialProjectClusterListFileDAOImpl;
-import controller.studentController.IOServiceImpl.JsonStudentMapFileDAOImpl;
 import jade.core.Agent;
 import jade.lang.acl.ACLMessage;
 import model.Model;
@@ -106,13 +104,18 @@ public class ProjectControllerImpl implements Controller<Project,ProjectCluster,
 	}
 
 	@Override
-	public boolean sendMessage(Agent agent, String type, Object objeto, String ontology) {
-		return communicationController.sendMessage(agent,type,objeto,ontology);
-	}
-
+	public boolean sendMessage(Agent agent, String type, Object objeto, String ontology, int performative) {
+		return communicationController.sendMessage(agent,type,objeto,ontology, performative);
+	}	
+	
 	@Override
 	public ACLMessage receiveMessage(Agent agent, String ontology) {
 		return communicationController.receiveMessageBlocking(agent,ontology);
+	}
+	
+	@Override
+	public ACLMessage receiveMessage(Agent agent, String ontology, int performative) {
+		return communicationController.receiveMessageBlocking(agent,ontology, performative);
 	}
 
 	@Override

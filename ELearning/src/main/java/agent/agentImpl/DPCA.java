@@ -29,8 +29,8 @@ public class DPCA extends Agent{
 		DFAgentDescription dfd = new DFAgentDescription();
 		ServiceDescription sd = new ServiceDescription();
 
-		sd.setName( Constants.DPCA_SERVICE_NAME );
-		sd.setType( Constants.DPCA_DSCA_CHANGE_DETECTION_SERVICE_TYPE );
+		sd.setName( Constants.DPCA_NAME );
+		sd.setType( Constants.DPCA_SERVICE_NAME );
 		sd.addOntologies( Constants.ONTOLY_NAME );
 		sd.addLanguages( new SLCodec().getName() );
 		dfd.addServices(sd);

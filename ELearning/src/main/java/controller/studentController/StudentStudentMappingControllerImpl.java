@@ -1,6 +1,5 @@
 package controller.studentController;
 
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -47,9 +46,6 @@ public class StudentStudentMappingControllerImpl implements MappingController<St
 				}
 			}
 		}
-		
-	
 		return true;
 	}
-
 }

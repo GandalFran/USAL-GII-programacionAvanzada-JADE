@@ -7,8 +7,6 @@ import org.apache.commons.math3.ml.clustering.DBSCANClusterer;
 
 import POJO.Project;
 import POJO.ProjectCluster;
-import POJO.Student;
-import POJO.StudentCluster;
 import controller.ClusterizationController;
 import utils.Constants;
 

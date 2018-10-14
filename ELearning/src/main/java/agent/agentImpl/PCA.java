@@ -13,6 +13,8 @@ import utils.Constants;
 
 public class PCA extends Agent{
 
+	private static final long serialVersionUID = 1L;
+
 	public void setup() {
 		Behaviour behaviour = new ProjectClusterBehaviour(Constants.PROJECTS_FILE_PATH,Constants.PROJECT_CLUSTERS_FILE_PATH);
 		this.addBehaviour(behaviour);
@@ -28,8 +30,8 @@ public class PCA extends Agent{
 		DFAgentDescription dfd = new DFAgentDescription();
 		ServiceDescription sd = new ServiceDescription();
 
-		sd.setName( Constants.PCA_SERVICE_NAME);
-		sd.setType( Constants.PCA_SCA_CLUSTERING_SERVICE_TYPE);
+		sd.setName( Constants.PCA_NAME);
+		sd.setType( Constants.PCA_SERVICE_NAME);
 		sd.addOntologies( Constants.ONTOLY_NAME );
 		sd.addLanguages( new SLCodec().getName() );
 		dfd.addServices(sd);

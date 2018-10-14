@@ -35,6 +35,6 @@ public interface Constants {
 	float EPSILON = 10.0f;
 	float DELTA = 5.0f;	
 
-	double MAXRADIUS = 5;
+	double MAXRADIUS = 10;
 	int MINPOINTS = 2;
 }

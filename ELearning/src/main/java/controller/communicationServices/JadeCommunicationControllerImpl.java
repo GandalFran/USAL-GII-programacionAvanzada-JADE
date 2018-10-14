@@ -1,9 +1,10 @@
-package controller;
+package controller.communicationServices;
 
 import java.io.IOException;
 import java.io.Serializable;
 import java.util.Iterator;
 
+import controller.CommunicationController;
 import jade.content.lang.sl.SLCodec;
 import jade.core.AID;
 import jade.core.Agent;
@@ -17,13 +18,19 @@ import jade.lang.acl.ACLMessage;
 import jade.lang.acl.MessageTemplate;
 
 public class JadeCommunicationControllerImpl implements CommunicationController{
+
 	
 	@Override
 	public ACLMessage receiveMessageBlocking(Agent agent, String ontology) {
-		ACLMessage msg= agent.blockingReceive(MessageTemplate.and(MessageTemplate.MatchPerformative(ACLMessage.REQUEST), MessageTemplate.MatchOntology(ontology)));
+		ACLMessage msg= agent.blockingReceive(MessageTemplate.and(MessageTemplate.MatchAll(), MessageTemplate.MatchOntology(ontology)));
 		return msg;
 	}
 	
+	@Override
+	public ACLMessage receiveMessageBlocking(Agent agent, String ontology, int performative) {
+		ACLMessage msg= agent.blockingReceive(MessageTemplate.and(MessageTemplate.MatchPerformative(performative), MessageTemplate.MatchOntology(ontology)));
+		return msg;
+	}
 
     /**
      * Env�a un objeto desde el agent eindicado a un agent eque proporciona un servicio del tipo dado
@@ -32,7 +39,7 @@ public class JadeCommunicationControllerImpl implements CommunicationController{
      * @param objeto Mensaje a Enviar
      */
 	@Override
-    public boolean sendMessage(Agent agent, String type, Object objeto, String ontology)
+    public boolean sendMessage(Agent agent, String type, Object objeto, String ontology, int performative)
     {
         DFAgentDescription[] dfd;
         dfd=buscarAgentes(agent, type);
@@ -41,7 +48,7 @@ public class JadeCommunicationControllerImpl implements CommunicationController{
         {
             if(dfd!=null)
             {
-            	ACLMessage aclMessage = new ACLMessage(ACLMessage.REQUEST);
+            	ACLMessage aclMessage = new ACLMessage(performative);
             	
             	for(int i=0;i<dfd.length;i++)
 	        		aclMessage.addReceiver(dfd[i].getName());
@@ -54,7 +61,8 @@ public class JadeCommunicationControllerImpl implements CommunicationController{
 				//cambio la codificacion de la carta
 				aclMessage.getEnvelope().setPayloadEncoding("ISO8859_1");
                 //aclMessage.getEnvelope().setAclRepresentation(FIPANames.ACLCodec.XML); 
-        		aclMessage.setContentObject((Serializable)objeto);
+				if(objeto != null)
+					aclMessage.setContentObject((Serializable)objeto);
         		agent.send(aclMessage);       		
             }
         }
@@ -126,7 +134,8 @@ public class JadeCommunicationControllerImpl implements CommunicationController{
                     AID provider = dfd.getName();
                     
                     //un mismo agente puede proporcionar varios servicios, solo estamos interasados en "tipo"
-                    Iterator it = dfd.getAllServices();
+                    @SuppressWarnings("rawtypes")
+					Iterator it = dfd.getAllServices();
                     while (it.hasNext())
                     {
                         ServiceDescription sd = (ServiceDescription) it.next();

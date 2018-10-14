@@ -7,6 +7,8 @@ import controller.ICluster;
 
 public class ProjectCluster implements ICluster<Project>{
 
+	private static final long serialVersionUID = 1L;
+	
 	private List<Project> clusterElements;
 
 	public ProjectCluster(List<Project> clusterElements) {
