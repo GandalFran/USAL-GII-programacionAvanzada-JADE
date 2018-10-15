@@ -64,7 +64,8 @@ public class Main {
 		result = studentController.doMappingAndExport(Constants.STUDENT_HELPERS_FILE_PATH);	System.out.println(result);	
 		System.out.print("[Controller][Mapping][Project] Mapping students-projects - ");
 		result = projectController.doMappingAndExport(Constants.STUDENT_PROJECTS_FILE_PATH, studentController.getAllClusters());	System.out.println(result);
-		
+	
+		sc.close();
 	}
 }
 

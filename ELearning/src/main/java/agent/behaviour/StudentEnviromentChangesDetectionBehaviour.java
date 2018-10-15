@@ -22,8 +22,9 @@ public class StudentEnviromentChangesDetectionBehaviour extends CyclicBehaviour{
 		
 		if(s.toUpperCase().contains("S")) {
 			controller.sendMessage(myAgent, Constants.SCA_NAME, null, Constants.ONTOLY_NAME, ACLMessage.REQUEST);
-			controller.receiveMessage(myAgent,Constants.ONTOLY_NAME, ACLMessage.CONFIRM);
-			
+			controller.receiveMessage(myAgent,Constants.ONTOLY_NAME, ACLMessage.CONFIRM);	
 		}
+		
+		sc.close();
 	}
 }

@@ -1,14 +1,11 @@
 package POJO;
 
-import java.io.Serializable;
 import java.util.Arrays;
 import java.util.List;
 
 import controller.ICluster;
 
-public class ProjectCluster implements ICluster<Project>, Serializable{
-
-	private static final long serialVersionUID = 1L;
+public class ProjectCluster implements ICluster<Project>{
 
 	private Project[] clusterElements;
 

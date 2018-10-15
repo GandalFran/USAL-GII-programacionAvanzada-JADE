@@ -1,18 +1,10 @@
 package controller.studentController.IOServiceImpl;
 
-import java.io.BufferedInputStream;
-import java.io.BufferedOutputStream;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
-import java.io.ObjectInputStream;
-import java.io.ObjectOutputStream;
 import java.util.Arrays;
 import java.util.List;
 
 import com.google.gson.Gson;
 
-import POJO.Project;
 import POJO.StudentCluster;
 import controller.IOServices.ListFileDAO;
 import utils.Utils;
