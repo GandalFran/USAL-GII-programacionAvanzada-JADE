@@ -17,7 +17,7 @@ import controller.IOServices.MapFileDAO;
 import controller.communicationServices.JadeCommunicationControllerImpl;
 import controller.projectController.IOServicesImpl.JsonProjectListFileDAOImpl;
 import controller.projectController.IOServicesImpl.JsonProjectMapFileDAOImpl;
-import controller.projectController.IOServicesImpl.SerialProjectClusterListFileDAOImpl;
+import controller.projectController.IOServicesImpl.JsonProjectClusterListFileDAOImpl;
 import jade.core.Agent;
 import jade.lang.acl.ACLMessage;
 import model.Model;
@@ -37,7 +37,7 @@ public class ProjectControllerImpl implements Controller<Project,ProjectCluster,
 	public ProjectControllerImpl() {
 		model = new ModelImpl<Project,ProjectCluster>();
 		elementDAO = new JsonProjectListFileDAOImpl();
-		clusterDAO = new SerialProjectClusterListFileDAOImpl();
+		clusterDAO = new JsonProjectClusterListFileDAOImpl();
 		mapDAO = new JsonProjectMapFileDAOImpl();
 		clusterController = new DBSCANProjectClusterizationControllerImpl();
 		mappingController = new StudentProjectMappingControllerImpl();
@@ -133,6 +133,11 @@ public class ProjectControllerImpl implements Controller<Project,ProjectCluster,
 			result = mapDAO.exportMultipleObject(filePath, toFill);
 		
 		return result;
+	}
+	
+	@Override
+	public void clear() {
+		this.model.clear();
 	}
 
 }

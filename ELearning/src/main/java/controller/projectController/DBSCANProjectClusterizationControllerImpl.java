@@ -14,15 +14,9 @@ public class DBSCANProjectClusterizationControllerImpl implements Clusterization
 
 	@Override
 	public boolean clusterize(List<Project> toCluster, List<ProjectCluster> clusters) {
-		/*Crear una instancia del DBSCAN pasandole como parametros el
-		 * numero maximo de distancia entre puntos y el minimo de
-		 * miembros de un cluster 
-		 */
+
 		DBSCANClusterer<Project> clusterer = new DBSCANClusterer<>(Constants.MAXRADIUS,Constants.MINPOINTS);
-		
-		/*El metodo cluster solicita una Collection pero list hereda
-		 * de collection 
-		 */
+
 		List<Cluster<Project>>clustersTemp=clusterer.cluster(toCluster);
 		
 		if(clusters==null)

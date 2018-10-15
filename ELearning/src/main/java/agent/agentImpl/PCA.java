@@ -16,7 +16,7 @@ public class PCA extends Agent{
 	private static final long serialVersionUID = 1L;
 
 	public void setup() {
-		Behaviour behaviour = new ProjectClusterBehaviour(Constants.PROJECTS_FILE_PATH,Constants.PROJECT_CLUSTERS_FILE_PATH);
+		Behaviour behaviour = new ProjectClusterBehaviour();
 		this.addBehaviour(behaviour);
 		
 		try {

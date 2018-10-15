@@ -19,6 +19,7 @@ public class MappingStudentsAndHelpersBehaviour extends CyclicBehaviour{
 		ACLMessage msg = studentController.receiveMessage(myAgent,Constants.ONTOLY_NAME, ACLMessage.REQUEST);
 		studentController.sendMessage(myAgent, msg.getSender().getLocalName(), null, Constants.ONTOLY_NAME, ACLMessage.CONFIRM);
 
+		studentController.clear();
 
 		result = studentController.importElements(Constants.STUDENTS_FILE_PATH);
 		if(false != result )

@@ -16,7 +16,7 @@ import controller.IOServices.MapFileDAO;
 import controller.communicationServices.JadeCommunicationControllerImpl;
 import controller.studentController.IOServiceImpl.JsonStudentListFileDAOImpl;
 import controller.studentController.IOServiceImpl.JsonStudentMapFileDAOImpl;
-import controller.studentController.IOServiceImpl.SerialStudentClusterListFileDAOImpl;
+import controller.studentController.IOServiceImpl.JsonStudentClusterListFileDAOImpl;
 import jade.core.Agent;
 import jade.lang.acl.ACLMessage;
 import model.Model;
@@ -36,7 +36,7 @@ public class StudentControllerImpl implements Controller<Student,StudentCluster,
 	public StudentControllerImpl() {
 		model = new ModelImpl<Student,StudentCluster>();
 		elementDAO = new JsonStudentListFileDAOImpl();
-		clusterDAO = new SerialStudentClusterListFileDAOImpl();
+		clusterDAO = new JsonStudentClusterListFileDAOImpl();
 		mapDAO = new JsonStudentMapFileDAOImpl();
 		clusterController = new DBSCANStudentClusterizationControllerImpl();
 		mappingController = new StudentStudentMappingControllerImpl();
@@ -130,6 +130,11 @@ public class StudentControllerImpl implements Controller<Student,StudentCluster,
 	@Override
 	public boolean doMappingAndExport(String filePath, List<StudentCluster> toMap) {
 		throw new UnsupportedOperationException();
+	}
+	
+	@Override
+	public void clear() {
+		this.model.clear();
 	}
 
 

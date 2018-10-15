@@ -10,5 +10,7 @@ public interface Model<E,C> {
 	
 	List<E> getAllElements();
 	List<C> getAllClusters();
+	
+	void clear();
 }
 

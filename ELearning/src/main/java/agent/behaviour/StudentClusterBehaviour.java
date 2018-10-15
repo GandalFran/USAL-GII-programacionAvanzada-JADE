@@ -9,14 +9,10 @@ import utils.Constants;
 public class StudentClusterBehaviour extends CyclicBehaviour{
 
 	private static final long serialVersionUID = 1L;
-	
-		private String elementsFilePath;
-		private String clustersFilePath;
+
 		private StudentControllerImpl controller;
 
-		public StudentClusterBehaviour(String elementsFilePath, String clustersFilePath) {
-			this.elementsFilePath = elementsFilePath;
-			this.clustersFilePath = clustersFilePath;
+		public StudentClusterBehaviour() {
 			this.controller = new StudentControllerImpl();
 		}
 		
@@ -31,11 +27,13 @@ public class StudentClusterBehaviour extends CyclicBehaviour{
 			}while(!msg.getSender().getLocalName().equals(Constants.DSCA_NAME));
 			controller.sendMessage(myAgent, Constants.DSCA_NAME, null, Constants.ONTOLY_NAME, ACLMessage.CONFIRM);
 
-			result = controller.importElements(elementsFilePath);
+			controller.clear();
+			
+			result = controller.importElements(Constants.STUDENTS_FILE_PATH);
 			if(result == true )
 				result = controller.clusterize();
 			if(result == true)
-				result = controller.exportClusters(clustersFilePath);
+				result = controller.exportClusters(Constants.STUDENT_CLUSTERS_FILE_PATH);
 			
 			controller.sendMessage(myAgent, Constants.SPMA_NAME, null, Constants.ONTOLY_NAME, ACLMessage.REQUEST);
 			do{

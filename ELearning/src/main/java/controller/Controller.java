@@ -24,4 +24,6 @@ public interface Controller<E,C,M>{
 
 	boolean doMappingAndExport(String filePath);
 	boolean doMappingAndExport(String filePath, List<M>toMap);
+
+	void clear();
 }

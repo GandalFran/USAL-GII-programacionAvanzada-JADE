@@ -10,13 +10,9 @@ public class ProjectClusterBehaviour extends CyclicBehaviour{
 
 	private static final long serialVersionUID = 1L;
 
-	private String elementsFilePath;
-	private String clustersFilePath;
 	private ProjectControllerImpl controller;
 
-	public ProjectClusterBehaviour(String elementsFilePath, String clustersFilePath) {
-		this.elementsFilePath = elementsFilePath;
-		this.clustersFilePath = clustersFilePath;
+	public ProjectClusterBehaviour() {
 		this.controller = new ProjectControllerImpl();
 	}
 	
@@ -31,11 +27,13 @@ public class ProjectClusterBehaviour extends CyclicBehaviour{
 		}while(!msg.getSender().getLocalName().equals(Constants.DPCA_NAME));
 		controller.sendMessage(myAgent, Constants.DPCA_NAME, null, Constants.ONTOLY_NAME, ACLMessage.CONFIRM);
 
-		result = controller.importElements(elementsFilePath);
+		controller.clear();
+		
+		result = controller.importElements(Constants.PROJECTS_FILE_PATH);
 		if(result == true )
 			result = controller.clusterize();
 		if(result == true)
-			result = controller.exportClusters(clustersFilePath);
+			result = controller.exportClusters(Constants.PROJECT_CLUSTERS_FILE_PATH);
 		
 		controller.sendMessage(myAgent, Constants.SPMA_NAME, null, Constants.ONTOLY_NAME, ACLMessage.REQUEST);
 		do {

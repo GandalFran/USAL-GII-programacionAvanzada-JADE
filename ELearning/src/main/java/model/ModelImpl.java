@@ -34,4 +34,10 @@ public class ModelImpl<E, C> implements Model<E,C>{
 		return new ArrayList<>( this.clusterList);
 	}
 	
+	@Override
+	public void clear() {
+		this.elementList.clear();
+		this.clusterList.clear();
+	}
+	
 }

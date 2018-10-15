@@ -20,6 +20,9 @@ public class MappingStudentsAndProjectsBehaviour extends CyclicBehaviour{
 		ACLMessage msg = studentController.receiveMessage(myAgent,Constants.ONTOLY_NAME, ACLMessage.REQUEST);
 		studentController.sendMessage(myAgent, msg.getSender().getLocalName(), null, Constants.ONTOLY_NAME, ACLMessage.CONFIRM);
 
+		studentController.clear();
+		projectController.clear();
+		
 		result = projectController.importClusters(Constants.PROJECT_CLUSTERS_FILE_PATH);
 		if(false != result )
 			result = studentController.importClusters(Constants.STUDENT_CLUSTERS_FILE_PATH);
