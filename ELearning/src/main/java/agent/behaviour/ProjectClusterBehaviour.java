@@ -20,11 +20,8 @@ public class ProjectClusterBehaviour extends CyclicBehaviour{
 	@Override
 	public void action() {
 		boolean result;
-		ACLMessage msg = null;
 
-		do {
-			msg = controller.receiveMessage(myAgent,Constants.ONTOLY_NAME, ACLMessage.REQUEST);
-		}while(!msg.getSender().getLocalName().equals(Constants.DPCA_NAME));
+		controller.receiveMessage(myAgent,Constants.ONTOLY_NAME, ACLMessage.REQUEST);
 		controller.sendMessage(myAgent, Constants.DPCA_NAME, null, Constants.ONTOLY_NAME, ACLMessage.CONFIRM);
 
 		controller.clear();
@@ -36,8 +33,6 @@ public class ProjectClusterBehaviour extends CyclicBehaviour{
 			result = controller.exportClusters(Constants.PROJECT_CLUSTERS_FILE_PATH);
 		
 		controller.sendMessage(myAgent, Constants.SPMA_NAME, null, Constants.ONTOLY_NAME, ACLMessage.REQUEST);
-		do {
-			msg = controller.receiveMessage(myAgent,Constants.ONTOLY_NAME, ACLMessage.CONFIRM);
-		}while(!msg.getSender().getLocalName().equals(Constants.SPMA_NAME));
+		controller.receiveMessage(myAgent,Constants.ONTOLY_NAME, ACLMessage.CONFIRM);
 	}
 }

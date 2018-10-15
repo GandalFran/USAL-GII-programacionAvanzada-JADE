@@ -15,7 +15,6 @@ public class ProjectEnviromentChangesDetectionBehaviour extends CyclicBehaviour{
 	
 	@Override
 	public void action() {
-		ACLMessage msg = null;
 		Scanner sc = new Scanner(System.in);
 		
 		System.out.println("Pulse P si hay cambios en los proyectos");
@@ -23,10 +22,7 @@ public class ProjectEnviromentChangesDetectionBehaviour extends CyclicBehaviour{
 		
 		if(s.toUpperCase().contains("P")) {
 			controller.sendMessage(myAgent, Constants.PCA_NAME, null, Constants.ONTOLY_NAME, ACLMessage.REQUEST);
-			do {
-				msg = controller.receiveMessage(myAgent,Constants.ONTOLY_NAME, ACLMessage.CONFIRM);
-			}while(!msg.getSender().getLocalName().equals(Constants.PCA_NAME));
-			
+			controller.receiveMessage(myAgent,Constants.ONTOLY_NAME, ACLMessage.CONFIRM);
 		}
 	}
 }

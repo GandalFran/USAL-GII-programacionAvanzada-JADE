@@ -20,11 +20,8 @@ public class StudentClusterBehaviour extends CyclicBehaviour{
 		@Override
 		public void action() {
 			boolean result;
-			ACLMessage msg = null;
 
-			do {
-				msg = controller.receiveMessage(myAgent,Constants.ONTOLY_NAME, ACLMessage.REQUEST);
-			}while(!msg.getSender().getLocalName().equals(Constants.DSCA_NAME));
+			controller.receiveMessage(myAgent,Constants.ONTOLY_NAME, ACLMessage.REQUEST);
 			controller.sendMessage(myAgent, Constants.DSCA_NAME, null, Constants.ONTOLY_NAME, ACLMessage.CONFIRM);
 
 			controller.clear();
@@ -36,13 +33,9 @@ public class StudentClusterBehaviour extends CyclicBehaviour{
 				result = controller.exportClusters(Constants.STUDENT_CLUSTERS_FILE_PATH);
 			
 			controller.sendMessage(myAgent, Constants.SPMA_NAME, null, Constants.ONTOLY_NAME, ACLMessage.REQUEST);
-			do{
-				msg = controller.receiveMessage(myAgent,Constants.ONTOLY_NAME, ACLMessage.CONFIRM);
-			}while(!msg.getSender().getLocalName().equals(Constants.SPMA_NAME));
+			controller.receiveMessage(myAgent,Constants.ONTOLY_NAME, ACLMessage.CONFIRM);
 			
 			controller.sendMessage(myAgent, Constants.SSMA_NAME, null, Constants.ONTOLY_NAME, ACLMessage.REQUEST);
-			do{
-				msg = controller.receiveMessage(myAgent,Constants.ONTOLY_NAME, ACLMessage.CONFIRM);
-			}while(!msg.getSender().getLocalName().equals(Constants.SSMA_NAME));
+			controller.receiveMessage(myAgent,Constants.ONTOLY_NAME, ACLMessage.CONFIRM);
 		}
 	}
