@@ -25,6 +25,5 @@ public class StudentEnviromentChangesDetectionBehaviour extends CyclicBehaviour{
 			controller.receiveMessage(myAgent,Constants.ONTOLY_NAME, ACLMessage.CONFIRM);	
 		}
 		
-		sc.close();
 	}
 }
